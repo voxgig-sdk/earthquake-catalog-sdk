@@ -1,0 +1,40 @@
+# BasicEarthquakeDataFlow
+
+main: kit: flow: BasicEarthquakeDataFlow:
+{
+  entity: "earthquake_data",
+  kind: "basic",
+  name: "BasicEarthquakeDataFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "earthquake_data_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "earthquake_data_ref01",
+        srcdatavar: "earthquake_data_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-earthquake_data_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEarthquakeDataFlow"
+}

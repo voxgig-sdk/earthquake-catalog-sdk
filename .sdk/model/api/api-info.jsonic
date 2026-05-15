@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "USGS Earthquake Hazards Program"
+        url: "https://earthquake.usgs.gov"
+      }
+      description: "This API allows users to perform custom searches for earthquake information based on various parameters, such as location, time, and magnitude. It adheres to the FDSN Event Web Service Specifications, providing a structured way to access earthquake data."
+      license: {
+        name: "Public Domain"
+        url: "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+      }
+      servers: [
+        {
+          description: "USGS Earthquake Catalog API"
+          url: "https://earthquake.usgs.gov/fdsnws/event/1"
+        }
+      ]
+      title: "Earthquake Catalog API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

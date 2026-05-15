@@ -1,0 +1,35 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 7
+  metrics: count: method: 7
+
+  entity: earthquake_data: {
+    path: "/count": {
+      op: load: method: *GET
+    }
+    path: "/query": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: service_information: {
+    path: "/application.json": {
+      op: load: method: *GET
+    }
+    path: "/application.wadl": {
+      op: load: method: *GET
+    }
+    path: "/catalogs": {
+      op: list: method: *GET
+    }
+    path: "/contributors": {
+      op: list: method: *GET
+    }
+    path: "/version": {
+      op: load: method: *GET
+    }
+  }
+
+}

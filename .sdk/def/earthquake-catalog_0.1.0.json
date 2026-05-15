@@ -1,0 +1,1210 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Earthquake Catalog API",
+    "description": "This API allows users to perform custom searches for earthquake information based on various parameters, such as location, time, and magnitude. It adheres to the FDSN Event Web Service Specifications, providing a structured way to access earthquake data.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "USGS Earthquake Hazards Program",
+      "url": "https://earthquake.usgs.gov"
+    },
+    "license": {
+      "name": "Public Domain",
+      "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1",
+      "description": "USGS Earthquake Catalog API"
+    }
+  ],
+  "paths": {
+    "/query": {
+      "get": {
+        "summary": "Query earthquake data",
+        "description": "Submit a data request for earthquake information using various search parameters. Returns earthquake events matching the specified criteria.",
+        "operationId": "queryEarthquakes",
+        "tags": [
+          "Earthquake Data"
+        ],
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Specify the output format",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "csv",
+                "geojson",
+                "kml",
+                "quakeml",
+                "text",
+                "xml"
+              ],
+              "default": "quakeml"
+            }
+          },
+          {
+            "name": "starttime",
+            "in": "query",
+            "description": "Limit to events on or after the specified start time. ISO8601 Date/Time format. UTC assumed if timezone not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2014-01-01"
+          },
+          {
+            "name": "endtime",
+            "in": "query",
+            "description": "Limit to events on or before the specified end time. ISO8601 Date/Time format. UTC assumed if timezone not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2014-01-02"
+          },
+          {
+            "name": "updatedafter",
+            "in": "query",
+            "description": "Limit to events updated after the specified time. ISO8601 Date/Time format. UTC assumed if timezone not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "minlatitude",
+            "in": "query",
+            "description": "Limit to events with a latitude larger than the specified minimum. Range: -90 to 90 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -90,
+              "maximum": 90,
+              "default": -90
+            }
+          },
+          {
+            "name": "maxlatitude",
+            "in": "query",
+            "description": "Limit to events with a latitude smaller than the specified maximum. Range: -90 to 90 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -90,
+              "maximum": 90,
+              "default": 90
+            }
+          },
+          {
+            "name": "minlongitude",
+            "in": "query",
+            "description": "Limit to events with a longitude larger than the specified minimum. Range: -360 to 360 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -360,
+              "maximum": 360,
+              "default": -180
+            }
+          },
+          {
+            "name": "maxlongitude",
+            "in": "query",
+            "description": "Limit to events with a longitude smaller than the specified maximum. Range: -360 to 360 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -360,
+              "maximum": 360,
+              "default": 180
+            }
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "description": "Specify the latitude to be used for a radius search. Range: -90 to 90 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -90,
+              "maximum": 90
+            }
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "description": "Specify the longitude to be used for a radius search. Range: -180 to 180 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          {
+            "name": "maxradius",
+            "in": "query",
+            "description": "Limit to events within the specified maximum number of degrees from the geographic point defined by latitude and longitude parameters. Range: 0 to 180 degrees. Mutually exclusive with maxradiuskm.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 180,
+              "default": 180
+            }
+          },
+          {
+            "name": "maxradiuskm",
+            "in": "query",
+            "description": "Limit to events within the specified maximum number of kilometers from the geographic point defined by latitude and longitude parameters. Range: 0 to 20001.6 km. Mutually exclusive with maxradius.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 20001.6,
+              "default": 20001.6
+            }
+          },
+          {
+            "name": "minmagnitude",
+            "in": "query",
+            "description": "Limit to events with a magnitude larger than the specified minimum.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            },
+            "example": 5
+          },
+          {
+            "name": "maxmagnitude",
+            "in": "query",
+            "description": "Limit to events with a magnitude smaller than the specified maximum.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "magnitudetype",
+            "in": "query",
+            "description": "Specify a magnitude type to use for testing the minimum and maximum limits.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mindepth",
+            "in": "query",
+            "description": "Limit to events with depth more than the specified minimum. Range: -100 to 1000 km.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -100,
+              "maximum": 1000,
+              "default": -100
+            }
+          },
+          {
+            "name": "maxdepth",
+            "in": "query",
+            "description": "Limit to events with depth less than the specified maximum. Range: -100 to 1000 km.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -100,
+              "maximum": 1000,
+              "default": 1000
+            }
+          },
+          {
+            "name": "catalog",
+            "in": "query",
+            "description": "Limit to events from a specified catalog. Use the Catalogs Method to find available catalogs.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contributor",
+            "in": "query",
+            "description": "Limit to events contributed by a specified contributor. Use the Contributors Method to find available contributors.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventid",
+            "in": "query",
+            "description": "Select a specific event by ID. Event identifiers are data center specific.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeallmagnitudes",
+            "in": "query",
+            "description": "Specify if all magnitudes for the event should be included.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includeallorigins",
+            "in": "query",
+            "description": "Specify if all origins for the event should be included.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includearrivals",
+            "in": "query",
+            "description": "Specify if phase arrivals should be included.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includedeleted",
+            "in": "query",
+            "description": "Specify if deleted products and events should be included. Value 'only' returns only deleted events.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "false",
+                "true",
+                "only"
+              ],
+              "default": "false"
+            }
+          },
+          {
+            "name": "includesuperseded",
+            "in": "query",
+            "description": "Specify if superseded products should be included. Only works when specifying eventid parameter.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit the results to the specified number of events. Maximum: 20000.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20000
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Return results starting at the event count specified, starting at 1.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "orderby",
+            "in": "query",
+            "description": "Order the results.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "time",
+                "time-asc",
+                "magnitude",
+                "magnitude-asc"
+              ],
+              "default": "time"
+            }
+          },
+          {
+            "name": "alertlevel",
+            "in": "query",
+            "description": "Limit to events with a specific PAGER alert level.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "green",
+                "yellow",
+                "orange",
+                "red"
+              ]
+            }
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "Convert GeoJSON output to a JSONP response using this callback. Must be used with format=geojson.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9\\._]+$"
+            }
+          },
+          {
+            "name": "eventtype",
+            "in": "query",
+            "description": "Limit to events of a specific type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "earthquake"
+          },
+          {
+            "name": "jsonerror",
+            "in": "query",
+            "description": "Request JSON(P) formatted output even on API error results. Must be used with format=geojson.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "kmlanimated",
+            "in": "query",
+            "description": "Whether to include timestamp in generated kml, for google earth animation support. Must be used with format=kml.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "kmlcolorby",
+            "in": "query",
+            "description": "How earthquakes are colored in KML. Must be used with format=kml.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "age",
+                "depth"
+              ],
+              "default": "age"
+            }
+          },
+          {
+            "name": "maxcdi",
+            "in": "query",
+            "description": "Maximum value for Maximum Community Determined Intensity reported by DYFI. Range: 0 to 12.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 12
+            }
+          },
+          {
+            "name": "mincdi",
+            "in": "query",
+            "description": "Minimum value for Maximum Community Determined Intensity reported by DYFI.",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "maxgap",
+            "in": "query",
+            "description": "Limit to events with no more than this azimuthal gap. Range: 0 to 360 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 360
+            }
+          },
+          {
+            "name": "mingap",
+            "in": "query",
+            "description": "Limit to events with no less than this azimuthal gap. Range: 0 to 360 degrees.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 360
+            }
+          },
+          {
+            "name": "maxmmi",
+            "in": "query",
+            "description": "Maximum value for Maximum Modified Mercalli Intensity reported by ShakeMap. Range: 0 to 12.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 12
+            }
+          },
+          {
+            "name": "maxsig",
+            "in": "query",
+            "description": "Limit to events with no more than this significance.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "minsig",
+            "in": "query",
+            "description": "Limit to events with no less than this significance.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "minfelt",
+            "in": "query",
+            "description": "Limit to events with this many DYFI responses. Minimum: 1.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "producttype",
+            "in": "query",
+            "description": "Limit to events that have this type of product associated.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "momentTensor": {
+                "value": "moment-tensor"
+              },
+              "focalMechanism": {
+                "value": "focal-mechanism"
+              },
+              "shakemap": {
+                "value": "shakemap"
+              }
+            }
+          },
+          {
+            "name": "productcode",
+            "in": "query",
+            "description": "Return the event that is associated with the productcode.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "reviewstatus",
+            "in": "query",
+            "description": "Limit to events with a specific review status.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "automatic",
+                "reviewed",
+                "all"
+              ],
+              "default": "all"
+            }
+          },
+          {
+            "name": "nodata",
+            "in": "query",
+            "description": "Define the error code that will be returned when no data is found.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                204,
+                404
+              ],
+              "default": 204
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with earthquake data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "FeatureCollection"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "generated": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "integer"
+                        },
+                        "api": {
+                          "type": "string"
+                        },
+                        "count": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "features": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "example": "Feature"
+                          },
+                          "properties": {
+                            "type": "object",
+                            "properties": {
+                              "mag": {
+                                "type": "number"
+                              },
+                              "place": {
+                                "type": "string"
+                              },
+                              "time": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "updated": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "tz": {
+                                "type": "integer"
+                              },
+                              "url": {
+                                "type": "string"
+                              },
+                              "detail": {
+                                "type": "string"
+                              },
+                              "felt": {
+                                "type": "integer"
+                              },
+                              "cdi": {
+                                "type": "number"
+                              },
+                              "mmi": {
+                                "type": "number"
+                              },
+                              "alert": {
+                                "type": "string"
+                              },
+                              "status": {
+                                "type": "string"
+                              },
+                              "tsunami": {
+                                "type": "integer"
+                              },
+                              "sig": {
+                                "type": "integer"
+                              },
+                              "net": {
+                                "type": "string"
+                              },
+                              "code": {
+                                "type": "string"
+                              },
+                              "ids": {
+                                "type": "string"
+                              },
+                              "sources": {
+                                "type": "string"
+                              },
+                              "types": {
+                                "type": "string"
+                              },
+                              "nst": {
+                                "type": "integer"
+                              },
+                              "dmin": {
+                                "type": "number"
+                              },
+                              "rms": {
+                                "type": "number"
+                              },
+                              "gap": {
+                                "type": "number"
+                              },
+                              "magType": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "geometry": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "example": "Point"
+                              },
+                              "coordinates": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                },
+                                "minItems": 3,
+                                "maxItems": 3
+                              }
+                            }
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "bbox": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "description": "QuakeML 1.2 formatted earthquake data"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "object",
+                  "description": "KML formatted earthquake data"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No data found (when nodata=204)"
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "404": {
+            "description": "No data found (when nodata=404)"
+          },
+          "409": {
+            "description": "Conflict - deleted event (when includedeleted is not specified)"
+          }
+        }
+      }
+    },
+    "/count": {
+      "get": {
+        "summary": "Count earthquake events",
+        "description": "Perform a count on a data request. Count uses the same parameters as the query method.",
+        "operationId": "countEarthquakes",
+        "tags": [
+          "Earthquake Data"
+        ],
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Specify the output format",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "text",
+                "geojson",
+                "xml"
+              ],
+              "default": "text"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/starttime"
+          },
+          {
+            "$ref": "#/components/parameters/endtime"
+          },
+          {
+            "$ref": "#/components/parameters/updatedafter"
+          },
+          {
+            "$ref": "#/components/parameters/minlatitude"
+          },
+          {
+            "$ref": "#/components/parameters/maxlatitude"
+          },
+          {
+            "$ref": "#/components/parameters/minlongitude"
+          },
+          {
+            "$ref": "#/components/parameters/maxlongitude"
+          },
+          {
+            "$ref": "#/components/parameters/latitude"
+          },
+          {
+            "$ref": "#/components/parameters/longitude"
+          },
+          {
+            "$ref": "#/components/parameters/maxradius"
+          },
+          {
+            "$ref": "#/components/parameters/maxradiuskm"
+          },
+          {
+            "$ref": "#/components/parameters/minmagnitude"
+          },
+          {
+            "$ref": "#/components/parameters/maxmagnitude"
+          },
+          {
+            "$ref": "#/components/parameters/magnitudetype"
+          },
+          {
+            "$ref": "#/components/parameters/mindepth"
+          },
+          {
+            "$ref": "#/components/parameters/maxdepth"
+          },
+          {
+            "$ref": "#/components/parameters/catalog"
+          },
+          {
+            "$ref": "#/components/parameters/contributor"
+          },
+          {
+            "$ref": "#/components/parameters/eventtype"
+          },
+          {
+            "$ref": "#/components/parameters/reviewstatus"
+          },
+          {
+            "$ref": "#/components/parameters/alertlevel"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with event count",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "example": 42
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "maxAllowed": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          }
+        }
+      }
+    },
+    "/version": {
+      "get": {
+        "summary": "Get service version",
+        "description": "Request full service version number",
+        "operationId": "getVersion",
+        "tags": [
+          "Service Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "Service version number",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "1.13.6"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/catalogs": {
+      "get": {
+        "summary": "Get available catalogs",
+        "description": "Request list of available catalogs",
+        "operationId": "getCatalogs",
+        "tags": [
+          "Service Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available catalogs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contributors": {
+      "get": {
+        "summary": "Get available contributors",
+        "description": "Request list of available contributors",
+        "operationId": "getContributors",
+        "tags": [
+          "Service Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available contributors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application.json": {
+      "get": {
+        "summary": "Get enumerated parameter values",
+        "description": "Request known enumerated parameter values for the interface",
+        "operationId": "getApplicationJson",
+        "tags": [
+          "Service Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "Enumerated parameter values",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application.wadl": {
+      "get": {
+        "summary": "Get WADL",
+        "description": "Request WADL (Web Application Description Language) for the interface",
+        "operationId": "getWadl",
+        "tags": [
+          "Service Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "WADL document",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "starttime": {
+        "name": "starttime",
+        "in": "query",
+        "description": "Limit to events on or after the specified start time. ISO8601 Date/Time format. UTC assumed if timezone not specified.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "endtime": {
+        "name": "endtime",
+        "in": "query",
+        "description": "Limit to events on or before the specified end time. ISO8601 Date/Time format. UTC assumed if timezone not specified.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "updatedafter": {
+        "name": "updatedafter",
+        "in": "query",
+        "description": "Limit to events updated after the specified time. ISO8601 Date/Time format. UTC assumed if timezone not specified.",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "minlatitude": {
+        "name": "minlatitude",
+        "in": "query",
+        "description": "Limit to events with a latitude larger than the specified minimum. Range: -90 to 90 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -90,
+          "maximum": 90,
+          "default": -90
+        }
+      },
+      "maxlatitude": {
+        "name": "maxlatitude",
+        "in": "query",
+        "description": "Limit to events with a latitude smaller than the specified maximum. Range: -90 to 90 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -90,
+          "maximum": 90,
+          "default": 90
+        }
+      },
+      "minlongitude": {
+        "name": "minlongitude",
+        "in": "query",
+        "description": "Limit to events with a longitude larger than the specified minimum. Range: -360 to 360 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -360,
+          "maximum": 360,
+          "default": -180
+        }
+      },
+      "maxlongitude": {
+        "name": "maxlongitude",
+        "in": "query",
+        "description": "Limit to events with a longitude smaller than the specified maximum. Range: -360 to 360 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -360,
+          "maximum": 360,
+          "default": 180
+        }
+      },
+      "latitude": {
+        "name": "latitude",
+        "in": "query",
+        "description": "Specify the latitude to be used for a radius search. Range: -90 to 90 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -90,
+          "maximum": 90
+        }
+      },
+      "longitude": {
+        "name": "longitude",
+        "in": "query",
+        "description": "Specify the longitude to be used for a radius search. Range: -180 to 180 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -180,
+          "maximum": 180
+        }
+      },
+      "maxradius": {
+        "name": "maxradius",
+        "in": "query",
+        "description": "Limit to events within the specified maximum number of degrees from the geographic point. Range: 0 to 180 degrees.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": 0,
+          "maximum": 180,
+          "default": 180
+        }
+      },
+      "maxradiuskm": {
+        "name": "maxradiuskm",
+        "in": "query",
+        "description": "Limit to events within the specified maximum number of kilometers from the geographic point. Range: 0 to 20001.6 km.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": 0,
+          "maximum": 20001.6,
+          "default": 20001.6
+        }
+      },
+      "minmagnitude": {
+        "name": "minmagnitude",
+        "in": "query",
+        "description": "Limit to events with a magnitude larger than the specified minimum.",
+        "schema": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "maxmagnitude": {
+        "name": "maxmagnitude",
+        "in": "query",
+        "description": "Limit to events with a magnitude smaller than the specified maximum.",
+        "schema": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "magnitudetype": {
+        "name": "magnitudetype",
+        "in": "query",
+        "description": "Specify a magnitude type to use for testing the minimum and maximum limits.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "mindepth": {
+        "name": "mindepth",
+        "in": "query",
+        "description": "Limit to events with depth more than the specified minimum. Range: -100 to 1000 km.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -100,
+          "maximum": 1000,
+          "default": -100
+        }
+      },
+      "maxdepth": {
+        "name": "maxdepth",
+        "in": "query",
+        "description": "Limit to events with depth less than the specified maximum. Range: -100 to 1000 km.",
+        "schema": {
+          "type": "number",
+          "format": "double",
+          "minimum": -100,
+          "maximum": 1000,
+          "default": 1000
+        }
+      },
+      "catalog": {
+        "name": "catalog",
+        "in": "query",
+        "description": "Limit to events from a specified catalog.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "contributor": {
+        "name": "contributor",
+        "in": "query",
+        "description": "Limit to events contributed by a specified contributor.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "eventtype": {
+        "name": "eventtype",
+        "in": "query",
+        "description": "Limit to events of a specific type.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "reviewstatus": {
+        "name": "reviewstatus",
+        "in": "query",
+        "description": "Limit to events with a specific review status.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "automatic",
+            "reviewed",
+            "all"
+          ],
+          "default": "all"
+        }
+      },
+      "alertlevel": {
+        "name": "alertlevel",
+        "in": "query",
+        "description": "Limit to events with a specific PAGER alert level.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "green",
+            "yellow",
+            "orange",
+            "red"
+          ]
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Earthquake Data",
+      "description": "Endpoints for querying earthquake event data"
+    },
+    {
+      "name": "Service Information",
+      "description": "Endpoints for retrieving service metadata and configuration"
+    }
+  ]
+}

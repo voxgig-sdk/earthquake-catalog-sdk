@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "service_information": {
+      "SERVICE_INFORMATION00": {},
+      "SERVICE_INFORMATION01": {},
+      "SERVICE_INFORMATION02": {}
+    }
+  },
+  "new": {
+    "service_information": {
+      "service_information_ref01": {}
+    }
+  }
+}

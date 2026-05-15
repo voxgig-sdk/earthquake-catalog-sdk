@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "earthquake_data": {
+      "EARTHQUAKE_DATA00": {
+        "count": "s3c",
+        "geometry": {},
+        "id": "EARTHQUAKE_DATA00",
+        "max_allowed": "s3f",
+        "property": {},
+        "type": "s41"
+      },
+      "EARTHQUAKE_DATA01": {
+        "count": "s78",
+        "geometry": {},
+        "id": "EARTHQUAKE_DATA01",
+        "max_allowed": "s7b",
+        "property": {},
+        "type": "s7d"
+      },
+      "EARTHQUAKE_DATA02": {
+        "count": "sb4",
+        "geometry": {},
+        "id": "EARTHQUAKE_DATA02",
+        "max_allowed": "sb7",
+        "property": {},
+        "type": "sb9"
+      }
+    }
+  },
+  "new": {
+    "earthquake_data": {
+      "earthquake_data_ref01": {
+        "count": "sf0",
+        "geometry": {},
+        "max_allowed": "sf3",
+        "property": {},
+        "type": "sf5"
+      }
+    }
+  }
+}
