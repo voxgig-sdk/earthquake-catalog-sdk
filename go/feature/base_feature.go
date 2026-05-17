@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/earthquake-catalog-sdk/core"
+	"github.com/voxgig-sdk/earthquake-catalog-sdk/go/core"
 )
 
 type BaseFeature struct {

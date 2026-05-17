@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk"
+	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/earthquake-catalog-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk"
-	"github.com/voxgig-sdk/earthquake-catalog-sdk/core"
+	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk/go"
+	"github.com/voxgig-sdk/earthquake-catalog-sdk/go/core"
 )
 
 func TestEarthquakeDataDirect(t *testing.T) {

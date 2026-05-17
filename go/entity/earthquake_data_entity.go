@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/earthquake-catalog-sdk/core"
+	"github.com/voxgig-sdk/earthquake-catalog-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/earthquake-catalog-sdk/go/utility/struct"
 )
 
 type EarthquakeDataEntity struct {

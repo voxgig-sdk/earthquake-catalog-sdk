@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk"
-	"github.com/voxgig-sdk/earthquake-catalog-sdk/core"
+	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk/go"
+	"github.com/voxgig-sdk/earthquake-catalog-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/earthquake-catalog-sdk/go/utility/struct"
 )
 
 func TestEarthquakeDataEntity(t *testing.T) {

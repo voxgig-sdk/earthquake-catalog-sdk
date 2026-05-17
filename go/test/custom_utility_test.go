@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk"
+	sdk "github.com/voxgig-sdk/earthquake-catalog-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

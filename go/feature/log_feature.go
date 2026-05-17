@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/earthquake-catalog-sdk/core"
+	"github.com/voxgig-sdk/earthquake-catalog-sdk/go/core"
 )
 
 type LogFeature struct {
