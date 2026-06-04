@@ -164,14 +164,12 @@ func earthquake_dataDirectSetup(mockres any) *earthquake_dataDirectSetupResult {
 	env := envOverride(map[string]any{
 		"EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID": map[string]any{},
 		"EARTHQUAKECATALOG_TEST_LIVE":    "FALSE",
-		"EARTHQUAKECATALOG_APIKEY":       "NONE",
 	})
 
 	live := env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["EARTHQUAKECATALOG_APIKEY"],
 		}
 		client := sdk.NewEarthquakeCatalogSDK(mergedOpts)
 

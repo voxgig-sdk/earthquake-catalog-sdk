@@ -31,9 +31,7 @@ loading a specific record.
 ```ruby
 require_relative "EarthquakeCatalog_sdk"
 
-client = EarthquakeCatalogSDK.new({
-  "apikey" => ENV["EARTHQUAKE-CATALOG_APIKEY"],
-})
+client = EarthquakeCatalogSDK.new({})
 ```
 
 ### 2. List earthquakedatas
@@ -135,7 +133,6 @@ Create a `.env.local` file at the project root:
 
 ```
 EARTHQUAKE-CATALOG_TEST_LIVE=TRUE
-EARTHQUAKE-CATALOG_APIKEY=<your-key>
 ```
 
 Then run:
@@ -158,7 +155,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

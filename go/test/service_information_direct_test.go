@@ -164,14 +164,12 @@ func service_informationDirectSetup(mockres any) *service_informationDirectSetup
 	env := envOverride(map[string]any{
 		"EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID": map[string]any{},
 		"EARTHQUAKECATALOG_TEST_LIVE":    "FALSE",
-		"EARTHQUAKECATALOG_APIKEY":       "NONE",
 	})
 
 	live := env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["EARTHQUAKECATALOG_APIKEY"],
 		}
 		client := sdk.NewEarthquakeCatalogSDK(mergedOpts)
 

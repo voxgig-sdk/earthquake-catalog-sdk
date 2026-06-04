@@ -96,7 +96,6 @@ function earthquake_data_basic_setup($extra)
         "EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID" => $idmap,
         "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
         "EARTHQUAKECATALOG_TEST_EXPLAIN" => "FALSE",
-        "EARTHQUAKECATALOG_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +107,6 @@ function earthquake_data_basic_setup($extra)
     if ($env["EARTHQUAKECATALOG_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["EARTHQUAKECATALOG_APIKEY"],
             ],
             $extra ?? [],
         ]);
