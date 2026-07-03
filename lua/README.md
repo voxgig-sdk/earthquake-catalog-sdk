@@ -10,7 +10,7 @@ The Lua SDK for the EarthquakeCatalog API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install earthquake-catalog-sdk
+luarocks install voxgig-sdk-earthquake-catalog
 ```
 
 If the module is not yet published, add the source directory to

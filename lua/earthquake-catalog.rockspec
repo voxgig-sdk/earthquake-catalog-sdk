@@ -8,12 +8,14 @@ source = {
   dir = "earthquake-catalog-sdk/lua"
 }
 description = {
-  summary = "EarthquakeCatalog SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Earthquake Catalog public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/earthquake-catalog-sdk",
+  issues_url = "https://github.com/voxgig-sdk/earthquake-catalog-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "earthquake-catalog" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The Python SDK for the EarthquakeCatalog API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install earthquake-catalog-sdk
+pip install voxgig-sdk-earthquake-catalog
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The PHP SDK for the EarthquakeCatalog API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/earthquake-catalog-sdk
+composer require voxgig-sdk/earthquake-catalog
 ```
 
 

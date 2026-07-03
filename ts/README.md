@@ -10,7 +10,7 @@ The TypeScript SDK for the EarthquakeCatalog API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install earthquake-catalog
+npm install @voxgig-sdk/earthquake-catalog
 ```
 ## Tutorial: your first API call
 

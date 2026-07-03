@@ -10,13 +10,13 @@ The Ruby SDK for the EarthquakeCatalog API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install earthquake-catalog-sdk
+gem install voxgig-sdk-earthquake-catalog
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "earthquake-catalog-sdk"
+gem "voxgig-sdk-earthquake-catalog"
 ```
 
 Then run:
