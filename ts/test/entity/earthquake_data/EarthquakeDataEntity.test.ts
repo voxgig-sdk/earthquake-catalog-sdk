@@ -120,6 +120,7 @@ function basicSetup(extra?: any) {
     'EARTHQUAKE_CATALOG_TEST_EARTHQUAKE_DATA_ENTID': idmap,
     'EARTHQUAKE_CATALOG_TEST_LIVE': 'FALSE',
     'EARTHQUAKE_CATALOG_TEST_EXPLAIN': 'FALSE',
+    'EARTHQUAKE_CATALOG_APIKEY': 'NONE',
   })
 
   idmap = env['EARTHQUAKE_CATALOG_TEST_EARTHQUAKE_DATA_ENTID']
@@ -129,6 +130,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new EarthquakeCatalogSDK(merge([
       {
+        apikey: env.EARTHQUAKE_CATALOG_APIKEY,
       },
       extra
     ]))

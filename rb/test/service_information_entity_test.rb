@@ -89,6 +89,7 @@ def service_information_basic_setup(extra)
     "EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID" => idmap,
     "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
     "EARTHQUAKECATALOG_TEST_EXPLAIN" => "FALSE",
+    "EARTHQUAKECATALOG_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -100,6 +101,7 @@ def service_information_basic_setup(extra)
   if env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["EARTHQUAKECATALOG_APIKEY"],
       },
       extra || {},
     ])

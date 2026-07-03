@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -109,7 +109,7 @@ local earthquake_data = client:EarthquakeData(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:EarthquakeData(nil):list(nil, nil)
+local results, err = client:EarthquakeData():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -117,7 +117,7 @@ local results, err = client:EarthquakeData(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:EarthquakeData(nil):load({ id = "earthquake_data_id" }, nil)
+local result, err = client:EarthquakeData():load({ id = "earthquake_data_id" })
 ```
 
 ### Common Methods
@@ -163,7 +163,7 @@ local service_information = client:ServiceInformation(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:ServiceInformation(nil):list(nil, nil)
+local results, err = client:ServiceInformation():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -171,7 +171,7 @@ local results, err = client:ServiceInformation(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ServiceInformation(nil):load({ id = "service_information_id" }, nil)
+local result, err = client:ServiceInformation():load({ id = "service_information_id" })
 ```
 
 ### Common Methods

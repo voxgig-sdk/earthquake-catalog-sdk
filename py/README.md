@@ -1,6 +1,11 @@
 # EarthquakeCatalog Python SDK
 
-The Python SDK for the EarthquakeCatalog API. Provides an entity-oriented interface following Pythonic conventions.
+
+
+The Python SDK for the EarthquakeCatalog API — an entity-oriented client following Pythonic conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -23,15 +28,18 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from earthquakecatalog_sdk import EarthquakeCatalogSDK
 
-client = EarthquakeCatalogSDK({})
+client = EarthquakeCatalogSDK({
+    "apikey": os.environ.get("EARTHQUAKE-CATALOG_APIKEY"),
+})
 ```
 
 ### 2. List earthquakedatas
 
 ```python
-result, err = client.EarthquakeData(None).list(None, None)
+result, err = client.EarthquakeData().list()
 if err:
     raise Exception(err)
 
@@ -44,7 +52,7 @@ if isinstance(result, list):
 ### 3. Load a earthquakedata
 
 ```python
-result, err = client.EarthquakeData(None).load({"id": "example_id"}, None)
+result, err = client.EarthquakeData().load({"id": "example_id"})
 if err:
     raise Exception(err)
 print(result)
@@ -92,11 +100,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```python
-client = EarthquakeCatalogSDK.test(None, None)
+client = EarthquakeCatalogSDK.test()
 
-result, err = client.EarthquakeCatalog(None).load(
-    {"id": "test01"}, None
-)
+result, err = client.EarthquakeCatalog().load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -127,6 +133,7 @@ Create a `.env.local` file at the project root:
 
 ```
 EARTHQUAKE-CATALOG_TEST_LIVE=TRUE
+EARTHQUAKE-CATALOG_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,6 +157,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

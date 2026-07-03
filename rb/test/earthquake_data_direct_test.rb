@@ -106,12 +106,14 @@ def earthquake_data_direct_setup(mockres)
   env = Runner.env_override({
     "EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID" => {},
     "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
+    "EARTHQUAKECATALOG_APIKEY" => "NONE",
   })
 
   live = env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["EARTHQUAKECATALOG_APIKEY"],
     }
     client = EarthquakeCatalogSDK.new(merged_opts)
     return {
