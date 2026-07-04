@@ -4,54 +4,52 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class EarthquakeData:
-    count: Optional[int] = None
-    geometry: Optional[dict] = None
-    id: Optional[str] = None
-    max_allowed: Optional[int] = None
-    property: Optional[dict] = None
-    type: Optional[str] = None
+class EarthquakeData(TypedDict, total=False):
+    count: int
+    geometry: dict
+    id: str
+    max_allowed: int
+    property: dict
+    type: str
 
 
-@dataclass
-class EarthquakeDataLoadMatch:
-    count: Optional[int] = None
-    geometry: Optional[dict] = None
-    id: Optional[str] = None
-    max_allowed: Optional[int] = None
-    property: Optional[dict] = None
-    type: Optional[str] = None
+class EarthquakeDataLoadMatch(TypedDict, total=False):
+    count: int
+    geometry: dict
+    id: str
+    max_allowed: int
+    property: dict
+    type: str
 
 
-@dataclass
-class EarthquakeDataListMatch:
-    count: Optional[int] = None
-    geometry: Optional[dict] = None
-    id: Optional[str] = None
-    max_allowed: Optional[int] = None
-    property: Optional[dict] = None
-    type: Optional[str] = None
+class EarthquakeDataListMatch(TypedDict, total=False):
+    count: int
+    geometry: dict
+    id: str
+    max_allowed: int
+    property: dict
+    type: str
 
 
-@dataclass
-class ServiceInformation:
+class ServiceInformation(TypedDict):
     pass
 
 
-@dataclass
-class ServiceInformationLoadMatch:
+class ServiceInformationLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class ServiceInformationListMatch:
+class ServiceInformationListMatch(TypedDict):
     pass
-

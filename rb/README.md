@@ -28,16 +28,14 @@ require_relative "EarthquakeCatalog_sdk"
 client = EarthquakeCatalogSDK.new
 ```
 
-### 2. List earthquakedatas
+### 2. List earthquakedata records
 
 ```ruby
 begin
-  result = client.earthquakedata.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of EarthquakeData records — iterate directly.
+  earthquakedatas = client.EarthquakeData.list
+  earthquakedatas.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.earthquakedata.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare EarthquakeData record (raises on error).
+  earthquakedata = client.EarthquakeData.load({ "id" => "example_id" })
+  puts earthquakedata
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = EarthquakeCatalogSDK.test
+client = EarthquakeCatalogSDK.test({
+  "entity" => { "earthquakedata" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.earthquakedata.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+earthquakedata = client.EarthquakeData.load({ "id" => "test01" })
+puts earthquakedata
 ```
 
 ### Use a custom fetch function
@@ -178,7 +181,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `EarthquakeData` | `(data) -> EarthquakeDataEntity` | Create a EarthquakeData entity instance. |
+| `EarthquakeData` | `(data) -> EarthquakeDataEntity` | Create an EarthquakeData entity instance. |
 | `ServiceInformation` | `(data) -> ServiceInformationEntity` | Create a ServiceInformation entity instance. |
 
 ### Entity interface
@@ -249,7 +252,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `const earthquake_data = client.earthquake_data`
+Create an instance: `earthquake_data = client.EarthquakeData`
 
 #### Operations
 
@@ -271,20 +274,22 @@ Create an instance: `const earthquake_data = client.earthquake_data`
 
 #### Example: Load
 
-```ts
-const earthquake_data = await client.earthquake_data.load({ id: 'earthquake_data_id' })
+```ruby
+# load returns the bare EarthquakeData record (raises on error).
+earthquake_data = client.EarthquakeData.load({ "id" => "earthquake_data_id" })
 ```
 
 #### Example: List
 
-```ts
-const earthquake_datas = await client.earthquake_data.list()
+```ruby
+# list returns an Array of EarthquakeData records (raises on error).
+earthquake_datas = client.EarthquakeData.list
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `const service_information = client.service_information`
+Create an instance: `service_information = client.ServiceInformation`
 
 #### Operations
 
@@ -295,14 +300,16 @@ Create an instance: `const service_information = client.service_information`
 
 #### Example: Load
 
-```ts
-const service_information = await client.service_information.load({ id: 'service_information_id' })
+```ruby
+# load returns the bare ServiceInformation record (raises on error).
+service_information = client.ServiceInformation.load({ "id" => "service_information_id" })
 ```
 
 #### Example: List
 
-```ts
-const service_informations = await client.service_information.list()
+```ruby
+# list returns an Array of ServiceInformation records (raises on error).
+service_informations = client.ServiceInformation.list
 ```
 
 
@@ -377,7 +384,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-earthquakedata = client.earthquakedata
+earthquakedata = client.EarthquakeData
 earthquakedata.load({ "id" => "example_id" })
 
 # earthquakedata.data_get now returns the loaded earthquakedata data

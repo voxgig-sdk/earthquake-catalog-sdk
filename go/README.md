@@ -30,53 +30,39 @@ go mod edit -replace github.com/voxgig-sdk/earthquake-catalog-sdk/go=../earthqua
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/earthquake-catalog-sdk/go"
-    "github.com/voxgig-sdk/earthquake-catalog-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 2. List earthquakedatas
-
-```go
-    result, err := client.EarthquakeData(nil).List(nil, nil)
+    // List earthquakedata records — the value is the array of records itself.
+    earthquakedatas, err := client.EarthquakeData(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range earthquakedatas.([]any) {
+        fmt.Println(item)
     }
-```
 
-### 3. Load an earthquakedata
-
-```go
-    result, err = client.EarthquakeData(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single earthquakedata — the value is the loaded record.
+    earthquakedata, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(earthquakedata)
 }
 ```
 
@@ -127,10 +113,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.EarthquakeData(nil).Load(
+earthquakedata, err := client.EarthquakeData(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(earthquakedata) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -207,7 +196,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
-| `EarthquakeData` | `(data map[string]any) EarthquakeCatalogEntity` | Create a EarthquakeData entity instance. |
+| `EarthquakeData` | `(data map[string]any) EarthquakeCatalogEntity` | Create an EarthquakeData entity instance. |
 | `ServiceInformation` | `(data map[string]any) EarthquakeCatalogEntity` | Create a ServiceInformation entity instance. |
 
 ### Entity interface (EarthquakeCatalogEntity)
@@ -228,17 +217,24 @@ All entities implement the `EarthquakeCatalogEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    earthquakedata, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // earthquakedata is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -296,13 +292,21 @@ Create an instance: `earthquake_data := client.EarthquakeData(nil)`
 #### Example: Load
 
 ```go
-result, err := client.EarthquakeData(nil).Load(map[string]any{"id": "earthquake_data_id"}, nil)
+earthquake_data, err := client.EarthquakeData(nil).Load(map[string]any{"id": "earthquake_data_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(earthquake_data) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.EarthquakeData(nil).List(nil, nil)
+earthquake_datas, err := client.EarthquakeData(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(earthquake_datas) // the array of records
 ```
 
 
@@ -320,13 +324,21 @@ Create an instance: `service_information := client.ServiceInformation(nil)`
 #### Example: Load
 
 ```go
-result, err := client.ServiceInformation(nil).Load(map[string]any{"id": "service_information_id"}, nil)
+service_information, err := client.ServiceInformation(nil).Load(map[string]any{"id": "service_information_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(service_information) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.ServiceInformation(nil).List(nil, nil)
+service_informations, err := client.ServiceInformation(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(service_informations) // the array of records
 ```
 
 

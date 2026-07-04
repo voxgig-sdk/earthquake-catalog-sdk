@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## EarthquakeDataEntity
 
 ```lua
-local earthquake_data = client:earthquake_data(nil)
+local earthquake_data = client:EarthquakeData(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local earthquake_data = client:earthquake_data(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:earthquake_data():list()
+local results, err = client:EarthquakeData():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -116,7 +116,7 @@ local results, err = client:earthquake_data():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:earthquake_data():load({ id = "earthquake_data_id" })
+local result, err = client:EarthquakeData():load({ id = "earthquake_data_id" })
 ```
 
 ### Common Methods
@@ -152,7 +152,7 @@ Return the entity name.
 ## ServiceInformationEntity
 
 ```lua
-local service_information = client:service_information(nil)
+local service_information = client:ServiceInformation(nil)
 ```
 
 ### Operations
@@ -162,7 +162,7 @@ local service_information = client:service_information(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:service_information():list()
+local results, err = client:ServiceInformation():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -170,7 +170,7 @@ local results, err = client:service_information():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:service_information():load({ id = "service_information_id" })
+local result, err = client:ServiceInformation():load({ id = "service_information_id" })
 ```
 
 ### Common Methods

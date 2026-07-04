@@ -233,10 +233,10 @@ class EarthquakeCatalogSDK
 
     private $_earthquake_data = null;
 
-    // Idiomatic facade: $client->earthquake_data()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias EarthquakeData() (PHP method
-    // names are case-insensitive).
-    public function earthquake_data($data = null)
+    // Canonical facade: $client->EarthquakeData()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->earthquake_data()
+    // resolves here too.
+    public function EarthquakeData($data = null)
     {
         require_once __DIR__ . '/entity/earthquake_data_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class EarthquakeCatalogSDK
 
     private $_service_information = null;
 
-    // Idiomatic facade: $client->service_information()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias ServiceInformation() (PHP method
-    // names are case-insensitive).
-    public function service_information($data = null)
+    // Canonical facade: $client->ServiceInformation()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->service_information()
+    // resolves here too.
+    public function ServiceInformation($data = null)
     {
         require_once __DIR__ . '/entity/service_information_entity.php';
         if ($data === null) {

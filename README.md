@@ -26,9 +26,11 @@ import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog'
 
 const client = new EarthquakeCatalogSDK()
 
-// List all earthquakedatas
-const earthquakedatas = await client.earthquakedata.list()
-console.log(earthquakedatas.data)
+// List all earthquakedatas (returns EarthquakeData[])
+const earthquakedatas = await client.EarthquakeData().list()
+for (const earthquakedata of earthquakedatas) {
+  console.log(earthquakedata)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,12 +86,13 @@ from earthquakecatalog_sdk import EarthquakeCatalogSDK
 
 client = EarthquakeCatalogSDK()
 
-# List all earthquakedatas
-earthquakedatas = client.earthquakedata.list()
-print(earthquakedatas)
+# List all earthquakedatas (returns a list, raises on error)
+earthquakedatas = client.EarthquakeData().list({})
+for earthquakedata in earthquakedatas:
+    print(earthquakedata)
 
-# Load a specific earthquakedata
-earthquakedata = client.earthquakedata.load({"id": "example_id"})
+# Load a specific earthquakedata (returns the record, raises on error)
+earthquakedata = client.EarthquakeData().load({"id": "example_id"})
 print(earthquakedata)
 ```
 
@@ -101,12 +104,12 @@ require_once 'earthquakecatalog_sdk.php';
 
 $client = new EarthquakeCatalogSDK();
 
-// List all earthquakedatas (throws on error)
-$earthquakedatas = $client->earthquakedata()->list();
+// List all earthquakedatas (returns an array; throws on error)
+$earthquakedatas = $client->EarthquakeData()->list();
 print_r($earthquakedatas);
 
-// Load a specific earthquakedata
-$earthquakedata = $client->earthquakedata()->load(["id" => "example_id"]);
+// Load a specific earthquakedata (returns the bare record; throws on error)
+$earthquakedata = $client->EarthquakeData()->load(["id" => "example_id"]);
 print_r($earthquakedata);
 ```
 
@@ -129,12 +132,12 @@ require_relative "EarthquakeCatalog_sdk"
 
 client = EarthquakeCatalogSDK.new
 
-# List all earthquakedatas
-earthquakedatas = client.earthquakedata.list
+# List all earthquakedatas (returns an Array; raises on error)
+earthquakedatas = client.EarthquakeData.list
 puts earthquakedatas
 
-# Load a specific earthquakedata
-earthquakedata = client.earthquakedata.load({ "id" => "example_id" })
+# Load a specific earthquakedata (returns the bare record; raises on error)
+earthquakedata = client.EarthquakeData.load({ "id" => "example_id" })
 puts earthquakedata
 ```
 
@@ -146,11 +149,11 @@ local sdk = require("earthquake-catalog_sdk")
 local client = sdk.new()
 
 -- List all earthquakedatas
-local earthquakedatas, err = client:earthquakedata():list()
+local earthquakedatas, err = client:EarthquakeData():list()
 print(earthquakedatas)
 
 -- Load a specific earthquakedata
-local earthquakedata, err = client:earthquakedata():load({ id = "example_id" })
+local earthquakedata, err = client:EarthquakeData():load({ id = "example_id" })
 print(earthquakedata)
 ```
 
@@ -163,22 +166,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = EarthquakeCatalogSDK.test()
-const result = await client.earthquakedata.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const earthquakedata = await client.EarthquakeData().load({ id: 'test01' })
+// earthquakedata is a bare EarthquakeData populated with mock data
+console.log(earthquakedata)
 ```
 
 ### Python
 
 ```python
 client = EarthquakeCatalogSDK.test()
-result = client.earthquakedata.load({"id": "test01"})
+earthquakedata = client.EarthquakeData().load({"id": "test01"})
+print(earthquakedata)
 ```
 
 ### PHP
 
 ```php
-$client = EarthquakeCatalogSDK::test();
-$result = $client->earthquakedata()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = EarthquakeCatalogSDK::test([
+    "entity" => ["earthquakedata" => ["test01" => ["id" => "test01"]]],
+]);
+$earthquakedata = $client->EarthquakeData()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -193,15 +201,18 @@ result, err := client.EarthquakeData(nil).Load(
 ### Ruby
 
 ```ruby
-client = EarthquakeCatalogSDK.test
-result = client.earthquakedata.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = EarthquakeCatalogSDK.test({
+  "entity" => { "earthquakedata" => { "test01" => { "id" => "test01" } } },
+})
+earthquakedata = client.EarthquakeData.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:earthquakedata():load({ id = "test01" })
+local result, err = client:EarthquakeData():load({ id = "test01" })
 ```
 
 ## How it works
@@ -249,6 +260,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

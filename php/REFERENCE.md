@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## EarthquakeDataEntity
 
 ```php
-$earthquake_data = $client->earthquake_data();
+$earthquake_data = $client->EarthquakeData();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $earthquake_data = $client->earthquake_data();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->earthquake_data()->list([]);
+$results = $client->EarthquakeData()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -118,7 +118,7 @@ $results = $client->earthquake_data()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->earthquake_data()->load(["id" => "earthquake_data_id"]);
+$result = $client->EarthquakeData()->load(["id" => "earthquake_data_id"]);
 ```
 
 ### Common Methods
@@ -154,7 +154,7 @@ Return the entity name.
 ## ServiceInformationEntity
 
 ```php
-$service_information = $client->service_information();
+$service_information = $client->ServiceInformation();
 ```
 
 ### Operations
@@ -164,7 +164,7 @@ $service_information = $client->service_information();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->service_information()->list([]);
+$results = $client->ServiceInformation()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -172,7 +172,7 @@ $results = $client->service_information()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->service_information()->load(["id" => "service_information_id"]);
+$result = $client->ServiceInformation()->load(["id" => "service_information_id"]);
 ```
 
 ### Common Methods

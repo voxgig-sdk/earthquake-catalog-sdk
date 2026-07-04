@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:earthquake_data():list() / client:earthquake_data():load({ id = ... })
-function EarthquakeCatalogSDK:earthquake_data(data)
+-- Idiomatic facade: client:EarthquakeData():list() / client:EarthquakeData():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function EarthquakeCatalogSDK:EarthquakeData(data)
   local EntityMod = require("entity.earthquake_data_entity")
   if data == nil then
     if self._earthquake_data == nil then
@@ -256,15 +257,10 @@ function EarthquakeCatalogSDK:earthquake_data(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:earthquake_data() instead.
-function EarthquakeCatalogSDK:EarthquakeData(data)
-  local EntityMod = require("entity.earthquake_data_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:service_information():list() / client:service_information():load({ id = ... })
-function EarthquakeCatalogSDK:service_information(data)
+-- Idiomatic facade: client:ServiceInformation():list() / client:ServiceInformation():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function EarthquakeCatalogSDK:ServiceInformation(data)
   local EntityMod = require("entity.service_information_entity")
   if data == nil then
     if self._service_information == nil then
@@ -272,12 +268,6 @@ function EarthquakeCatalogSDK:service_information(data)
     end
     return self._service_information
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:service_information() instead.
-function EarthquakeCatalogSDK:ServiceInformation(data)
-  local EntityMod = require("entity.service_information_entity")
   return EntityMod.new(self, data)
 end
 

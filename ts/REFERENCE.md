@@ -121,7 +121,7 @@ Alias for `EarthquakeCatalogSDK.test()`.
 ## EarthquakeDataEntity
 
 ```ts
-const earthquake_data = client.earthquake_data
+const earthquake_data = client.EarthquakeData()
 ```
 
 ### Fields
@@ -142,7 +142,7 @@ const earthquake_data = client.earthquake_data
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.earthquake_data.list()
+const results = await client.EarthquakeData().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -150,7 +150,7 @@ const results = await client.earthquake_data.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.earthquake_data.load({ id: 'earthquake_data_id' })
+const result = await client.EarthquakeData().load({ id: 'earthquake_data_id' })
 ```
 
 ### Common Methods
@@ -184,7 +184,7 @@ Return a copy of the entity options.
 ## ServiceInformationEntity
 
 ```ts
-const service_information = client.service_information
+const service_information = client.ServiceInformation()
 ```
 
 ### Operations
@@ -194,7 +194,7 @@ const service_information = client.service_information
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.service_information.list()
+const results = await client.ServiceInformation().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -202,7 +202,7 @@ const results = await client.service_information.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.service_information.load({ id: 'service_information_id' })
+const result = await client.ServiceInformation().load({ id: 'service_information_id' })
 ```
 
 ### Common Methods

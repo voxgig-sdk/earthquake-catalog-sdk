@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## EarthquakeDataEntity
 
 ```python
-earthquake_data = client.earthquake_data
+earthquake_data = client.EarthquakeData()
 ```
 
 ### Fields
@@ -105,7 +105,9 @@ earthquake_data = client.earthquake_data
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.earthquake_data.list({})
+results = client.EarthquakeData().list({})
+for earthquake_data in results:
+    print(earthquake_data)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -113,7 +115,7 @@ results = client.earthquake_data.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.earthquake_data.load({"id": "earthquake_data_id"})
+result = client.EarthquakeData().load({"id": "earthquake_data_id"})
 ```
 
 ### Common Methods
@@ -148,7 +150,7 @@ Return the entity name.
 ## ServiceInformationEntity
 
 ```python
-service_information = client.service_information
+service_information = client.ServiceInformation()
 ```
 
 ### Operations
@@ -158,7 +160,9 @@ service_information = client.service_information
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.service_information.list({})
+results = client.ServiceInformation().list({})
+for service_information in results:
+    print(service_information)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -166,7 +170,7 @@ results = client.service_information.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.service_information.load({"id": "service_information_id"})
+result = client.ServiceInformation().load({"id": "service_information_id"})
 ```
 
 ### Common Methods

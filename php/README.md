@@ -29,18 +29,16 @@ require_once 'earthquakecatalog_sdk.php';
 $client = new EarthquakeCatalogSDK();
 ```
 
-### 2. List earthquakedatas
+### 2. List earthquakedata records
 
 ```php
 try {
-    $result = $client->earthquakedata()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of EarthquakeData records — iterate directly.
+    $earthquakedatas = $client->EarthquakeData()->list();
+    foreach ($earthquakedatas as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->earthquakedata()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare EarthquakeData record (throws on error).
+    $earthquakedata = $client->EarthquakeData()->load(["id" => "example_id"]);
+    print_r($earthquakedata);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = EarthquakeCatalogSDK::test();
+$client = EarthquakeCatalogSDK::test([
+    "entity" => ["earthquakedata" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->earthquakedata()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$earthquakedata = $client->EarthquakeData()->load(["id" => "test01"]);
+print_r($earthquakedata);
 ```
 
 ### Use a custom fetch function
@@ -182,7 +185,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `EarthquakeData` | `($data): EarthquakeDataEntity` | Create a EarthquakeData entity instance. |
+| `EarthquakeData` | `($data): EarthquakeDataEntity` | Create an EarthquakeData entity instance. |
 | `ServiceInformation` | `($data): ServiceInformationEntity` | Create a ServiceInformation entity instance. |
 
 ### Entity interface
@@ -254,7 +257,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `const earthquake_data = client.earthquake_data`
+Create an instance: `$earthquake_data = $client->EarthquakeData();`
 
 #### Operations
 
@@ -276,20 +279,22 @@ Create an instance: `const earthquake_data = client.earthquake_data`
 
 #### Example: Load
 
-```ts
-const earthquake_data = await client.earthquake_data.load({ id: 'earthquake_data_id' })
+```php
+// load() returns the bare EarthquakeData record (throws on error).
+$earthquake_data = $client->EarthquakeData()->load(["id" => "earthquake_data_id"]);
 ```
 
 #### Example: List
 
-```ts
-const earthquake_datas = await client.earthquake_data.list()
+```php
+// list() returns an array of EarthquakeData records (throws on error).
+$earthquake_datas = $client->EarthquakeData()->list();
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `const service_information = client.service_information`
+Create an instance: `$service_information = $client->ServiceInformation();`
 
 #### Operations
 
@@ -300,14 +305,16 @@ Create an instance: `const service_information = client.service_information`
 
 #### Example: Load
 
-```ts
-const service_information = await client.service_information.load({ id: 'service_information_id' })
+```php
+// load() returns the bare ServiceInformation record (throws on error).
+$service_information = $client->ServiceInformation()->load(["id" => "service_information_id"]);
 ```
 
 #### Example: List
 
-```ts
-const service_informations = await client.service_information.list()
+```php
+// list() returns an array of ServiceInformation records (throws on error).
+$service_informations = $client->ServiceInformation()->list();
 ```
 
 
@@ -382,7 +389,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$earthquakedata = $client->earthquakedata();
+$earthquakedata = $client->EarthquakeData();
 $earthquakedata->load(["id" => "example_id"]);
 
 // $earthquakedata->dataGet() now returns the loaded earthquakedata data

@@ -220,41 +220,21 @@ class EarthquakeCatalogSDK:
         }
 
 
-    @property
-    def earthquake_data(self):
-        """Idiomatic facade: client.earthquake_data.list() / client.earthquake_data.load({"id": ...})."""
-        from entity.earthquake_data_entity import EarthquakeDataEntity
-        cached = getattr(self, "_earthquake_data", None)
-        if cached is None:
-            cached = EarthquakeDataEntity(self, None)
-            self._earthquake_data = cached
-        return cached
-
-    def EarthquakeData(self, data=None):
-        # Deprecated: use client.earthquake_data instead.
+    def EarthquakeData(self, data=None) -> "EarthquakeDataEntity":
+        """Entity factory: client.EarthquakeData().list({}) / client.EarthquakeData().load({"id": ...})."""
         from entity.earthquake_data_entity import EarthquakeDataEntity
         return EarthquakeDataEntity(self, data)
 
 
-    @property
-    def service_information(self):
-        """Idiomatic facade: client.service_information.list() / client.service_information.load({"id": ...})."""
-        from entity.service_information_entity import ServiceInformationEntity
-        cached = getattr(self, "_service_information", None)
-        if cached is None:
-            cached = ServiceInformationEntity(self, None)
-            self._service_information = cached
-        return cached
-
-    def ServiceInformation(self, data=None):
-        # Deprecated: use client.service_information instead.
+    def ServiceInformation(self, data=None) -> "ServiceInformationEntity":
+        """Entity factory: client.ServiceInformation().list({}) / client.ServiceInformation().load({"id": ...})."""
         from entity.service_information_entity import ServiceInformationEntity
         return ServiceInformationEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "EarthquakeCatalogSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class EarthquakeCatalogSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.earthquake_data_entity import EarthquakeDataEntity
+    from entity.service_information_entity import ServiceInformationEntity

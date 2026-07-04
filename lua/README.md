@@ -31,26 +31,26 @@ local sdk = require("earthquake-catalog_sdk")
 local client = sdk.new()
 ```
 
-### 2. List earthquakedatas
+### 2. List earthquakedata records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:earthquakedata():list()
+local earthquakedatas, err = client:EarthquakeData():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(earthquakedatas) do
+  print(item["id"], item["name"])
 end
 ```
 
 ### 3. Load an earthquakedata
 
 ```lua
-local result, err = client:earthquakedata():load({ id = "example_id" })
+local earthquakedata, err = client:EarthquakeData():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(earthquakedata)
 ```
 
 
@@ -96,8 +96,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:earthquakedata():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:EarthquakeData():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -175,7 +175,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
-| `EarthquakeData` | `(data) -> EarthquakeDataEntity` | Create a EarthquakeData entity instance. |
+| `EarthquakeData` | `(data) -> EarthquakeDataEntity` | Create an EarthquakeData entity instance. |
 | `ServiceInformation` | `(data) -> ServiceInformationEntity` | Create a ServiceInformation entity instance. |
 
 ### Entity interface
@@ -198,17 +198,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local earthquake_data, err = client:EarthquakeData():load({ id = "example_id" })
+    if err then error(err) end
+    -- earthquake_data is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -243,7 +248,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `const earthquake_data = client.earthquake_data`
+Create an instance: `local earthquake_data = client:EarthquakeData(nil)`
 
 #### Operations
 
@@ -265,20 +270,20 @@ Create an instance: `const earthquake_data = client.earthquake_data`
 
 #### Example: Load
 
-```ts
-const earthquake_data = await client.earthquake_data.load({ id: 'earthquake_data_id' })
+```lua
+local earthquake_data, err = client:EarthquakeData():load({ id = "earthquake_data_id" })
 ```
 
 #### Example: List
 
-```ts
-const earthquake_datas = await client.earthquake_data.list()
+```lua
+local earthquake_datas, err = client:EarthquakeData():list()
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `const service_information = client.service_information`
+Create an instance: `local service_information = client:ServiceInformation(nil)`
 
 #### Operations
 
@@ -289,14 +294,14 @@ Create an instance: `const service_information = client.service_information`
 
 #### Example: Load
 
-```ts
-const service_information = await client.service_information.load({ id: 'service_information_id' })
+```lua
+local service_information, err = client:ServiceInformation():load({ id = "service_information_id" })
 ```
 
 #### Example: List
 
-```ts
-const service_informations = await client.service_information.list()
+```lua
+local service_informations, err = client:ServiceInformation():list()
 ```
 
 
@@ -371,7 +376,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local earthquakedata = client:earthquakedata()
+local earthquakedata = client:EarthquakeData()
 earthquakedata:load({ id = "example_id" })
 
 -- earthquakedata:data_get() now returns the loaded earthquakedata data

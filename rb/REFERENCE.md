@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## EarthquakeDataEntity
 
 ```ruby
-earthquake_data = client.earthquake_data
+earthquake_data = client.EarthquakeData
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ earthquake_data = client.earthquake_data
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.earthquake_data.list(nil)
+results = client.EarthquakeData.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -119,7 +119,7 @@ results = client.earthquake_data.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.earthquake_data.load({ "id" => "earthquake_data_id" })
+result = client.EarthquakeData.load({ "id" => "earthquake_data_id" })
 ```
 
 ### Common Methods
@@ -155,7 +155,7 @@ Return the entity name.
 ## ServiceInformationEntity
 
 ```ruby
-service_information = client.service_information
+service_information = client.ServiceInformation
 ```
 
 ### Operations
@@ -165,7 +165,7 @@ service_information = client.service_information
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.service_information.list(nil)
+results = client.ServiceInformation.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -173,7 +173,7 @@ results = client.service_information.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.service_information.load({ "id" => "service_information_id" })
+result = client.ServiceInformation.load({ "id" => "service_information_id" })
 ```
 
 ### Common Methods

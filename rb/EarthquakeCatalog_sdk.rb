@@ -208,26 +208,14 @@ class EarthquakeCatalogSDK
   end
 
 
-  # Idiomatic facade: client.earthquake_data.list / client.earthquake_data.load({ "id" => ... })
-  def earthquake_data
-    require_relative 'entity/earthquake_data_entity'
-    @earthquake_data ||= EarthquakeDataEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.earthquake_data instead.
+  # Canonical facade: client.EarthquakeData.list / client.EarthquakeData.load({ "id" => ... })
   def EarthquakeData(data = nil)
     require_relative 'entity/earthquake_data_entity'
     EarthquakeDataEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.service_information.list / client.service_information.load({ "id" => ... })
-  def service_information
-    require_relative 'entity/service_information_entity'
-    @service_information ||= ServiceInformationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.service_information instead.
+  # Canonical facade: client.ServiceInformation.list / client.ServiceInformation.load({ "id" => ... })
   def ServiceInformation(data = nil)
     require_relative 'entity/service_information_entity'
     ServiceInformationEntity.new(self, data)

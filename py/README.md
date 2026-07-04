@@ -31,24 +31,28 @@ from earthquakecatalog_sdk import EarthquakeCatalogSDK
 client = EarthquakeCatalogSDK()
 ```
 
-### 2. List earthquakedatas
+### 2. List earthquakedata records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.earthquakedata.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    earthquakedatas = client.EarthquakeData().list({})
+    for earthquakedata in earthquakedatas:
+        print(earthquakedata)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load an earthquakedata
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.earthquakedata.load({"id": "example_id"})
-    print(result)
+    earthquakedata = client.EarthquakeData().load({"id": "example_id"})
+    print(earthquakedata)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = EarthquakeCatalogSDK.test()
 
-result = client.earthquakedata.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+earthquakedata = client.EarthquakeData().load({"id": "test01"})
+# earthquakedata contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -173,7 +178,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `EarthquakeData` | `(data) -> EarthquakeDataEntity` | Create a EarthquakeData entity instance. |
+| `EarthquakeData` | `(data) -> EarthquakeDataEntity` | Create an EarthquakeData entity instance. |
 | `ServiceInformation` | `(data) -> ServiceInformationEntity` | Create a ServiceInformation entity instance. |
 
 ### Entity interface
@@ -245,7 +250,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `const earthquake_data = client.earthquake_data`
+Create an instance: `earthquake_data = client.EarthquakeData()`
 
 #### Operations
 
@@ -267,20 +272,20 @@ Create an instance: `const earthquake_data = client.earthquake_data`
 
 #### Example: Load
 
-```ts
-const earthquake_data = await client.earthquake_data.load({ id: 'earthquake_data_id' })
+```python
+earthquake_data = client.EarthquakeData().load({"id": "earthquake_data_id"})
 ```
 
 #### Example: List
 
-```ts
-const earthquake_datas = await client.earthquake_data.list()
+```python
+earthquake_datas = client.EarthquakeData().list({})
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `const service_information = client.service_information`
+Create an instance: `service_information = client.ServiceInformation()`
 
 #### Operations
 
@@ -291,14 +296,14 @@ Create an instance: `const service_information = client.service_information`
 
 #### Example: Load
 
-```ts
-const service_information = await client.service_information.load({ id: 'service_information_id' })
+```python
+service_information = client.ServiceInformation().load({"id": "service_information_id"})
 ```
 
 #### Example: List
 
-```ts
-const service_informations = await client.service_information.list()
+```python
+service_informations = client.ServiceInformation().list({})
 ```
 
 
@@ -372,7 +377,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-earthquakedata = client.earthquakedata
+earthquakedata = client.EarthquakeData()
 earthquakedata.load({"id": "example_id"})
 
 # earthquakedata.data_get() now returns the loaded earthquakedata data
