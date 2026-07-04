@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  ServiceInformation,
+  ServiceInformationLoadMatch,
+  ServiceInformationListMatch,
+} from '../EarthquakeCatalogTypes'
 
 // TODO: needs Entity superclass
-class ServiceInformationEntity extends EarthquakeCatalogEntityBase {
+class ServiceInformationEntity extends EarthquakeCatalogEntityBase<ServiceInformation> {
 
   constructor(client: EarthquakeCatalogSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class ServiceInformationEntity extends EarthquakeCatalogEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ServiceInformationLoadMatch, ctrl?: Control): Promise<ServiceInformation> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class ServiceInformationEntity extends EarthquakeCatalogEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<ServiceInformation> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: ServiceInformationListMatch, ctrl?: Control): Promise<ServiceInformation[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class ServiceInformationEntity extends EarthquakeCatalogEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<ServiceInformation[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

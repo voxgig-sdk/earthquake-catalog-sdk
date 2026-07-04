@@ -50,14 +50,12 @@ class TestServiceInformationEntity:
         service_information_ref01_ent = client.ServiceInformation(None)
         service_information_ref01_match = {}
 
-        service_information_ref01_list_result, err = service_information_ref01_ent.list(service_information_ref01_match, None)
-        assert err is None
+        service_information_ref01_list_result = service_information_ref01_ent.list(service_information_ref01_match, None)
         assert isinstance(service_information_ref01_list_result, list)
 
         # LOAD
         service_information_ref01_match_dt0 = {}
-        service_information_ref01_data_dt0_loaded, err = service_information_ref01_ent.load(service_information_ref01_match_dt0, None)
-        assert err is None
+        service_information_ref01_data_dt0_loaded = service_information_ref01_ent.load(service_information_ref01_match_dt0, None)
         assert service_information_ref01_data_dt0_loaded is not None
 
 
@@ -98,7 +96,6 @@ def _service_information_basic_setup(extra):
         "EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID": idmap,
         "EARTHQUAKECATALOG_TEST_LIVE": "FALSE",
         "EARTHQUAKECATALOG_TEST_EXPLAIN": "FALSE",
-        "EARTHQUAKECATALOG_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +106,6 @@ def _service_information_basic_setup(extra):
     if env.get("EARTHQUAKECATALOG_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("EARTHQUAKECATALOG_APIKEY"),
             },
             extra or {},
         ])

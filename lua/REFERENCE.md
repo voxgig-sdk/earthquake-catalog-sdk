@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## EarthquakeDataEntity
 
 ```lua
-local earthquake_data = client:EarthquakeData(nil)
+local earthquake_data = client:earthquake_data(nil)
 ```
 
 ### Fields
@@ -109,7 +108,7 @@ local earthquake_data = client:EarthquakeData(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:EarthquakeData():list()
+local results, err = client:earthquake_data():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -117,7 +116,7 @@ local results, err = client:EarthquakeData():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:EarthquakeData():load({ id = "earthquake_data_id" })
+local result, err = client:earthquake_data():load({ id = "earthquake_data_id" })
 ```
 
 ### Common Methods
@@ -153,7 +152,7 @@ Return the entity name.
 ## ServiceInformationEntity
 
 ```lua
-local service_information = client:ServiceInformation(nil)
+local service_information = client:service_information(nil)
 ```
 
 ### Operations
@@ -163,7 +162,7 @@ local service_information = client:ServiceInformation(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:ServiceInformation():list()
+local results, err = client:service_information():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -171,7 +170,7 @@ local results, err = client:ServiceInformation():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ServiceInformation():load({ id = "service_information_id" })
+local result, err = client:service_information():load({ id = "service_information_id" })
 ```
 
 ### Common Methods

@@ -9,12 +9,9 @@ The Lua SDK for the EarthquakeCatalog API — an entity-oriented client using Lu
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-earthquake-catalog
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("earthquake-catalog_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("EARTHQUAKE-CATALOG_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List earthquakedatas
 
 ```lua
-local result, err = client:EarthquakeData():list()
+local result, err = client:earthquakedata():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -50,10 +45,10 @@ if type(result) == "table" then
 end
 ```
 
-### 3. Load a earthquakedata
+### 3. Load an earthquakedata
 
 ```lua
-local result, err = client:EarthquakeData():load({ id = "example_id" })
+local result, err = client:earthquakedata():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:EarthquakeCatalog():load({ id = "test01" })
+local result, err = client:earthquakedata():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -134,8 +129,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-EARTHQUAKE-CATALOG_TEST_LIVE=TRUE
-EARTHQUAKE-CATALOG_APIKEY=<your-key>
+EARTHQUAKE_CATALOG_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -250,7 +243,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `const earthquake_data = client.EarthquakeData()`
+Create an instance: `const earthquake_data = client.earthquake_data`
 
 #### Operations
 
@@ -273,19 +266,19 @@ Create an instance: `const earthquake_data = client.EarthquakeData()`
 #### Example: Load
 
 ```ts
-const earthquake_data = await client.EarthquakeData().load({ id: 'earthquake_data_id' })
+const earthquake_data = await client.earthquake_data.load({ id: 'earthquake_data_id' })
 ```
 
 #### Example: List
 
 ```ts
-const earthquake_datas = await client.EarthquakeData().list()
+const earthquake_datas = await client.earthquake_data.list()
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `const service_information = client.ServiceInformation()`
+Create an instance: `const service_information = client.service_information`
 
 #### Operations
 
@@ -297,13 +290,13 @@ Create an instance: `const service_information = client.ServiceInformation()`
 #### Example: Load
 
 ```ts
-const service_information = await client.ServiceInformation().load({ id: 'service_information_id' })
+const service_information = await client.service_information.load({ id: 'service_information_id' })
 ```
 
 #### Example: List
 
 ```ts
-const service_informations = await client.ServiceInformation().list()
+const service_informations = await client.service_information.list()
 ```
 
 
@@ -378,11 +371,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local earthquakedata = client:earthquakedata()
+earthquakedata:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- earthquakedata:data_get() now returns the loaded earthquakedata data
+-- earthquakedata:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

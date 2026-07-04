@@ -9,9 +9,10 @@ The PHP SDK for the EarthquakeCatalog API — an entity-oriented client using PH
 
 
 ## Install
-```bash
-composer require voxgig-sdk/earthquake-catalog
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,31 +26,34 @@ loading a specific record.
 <?php
 require_once 'earthquakecatalog_sdk.php';
 
-$client = new EarthquakeCatalogSDK([
-    "apikey" => getenv("EARTHQUAKE-CATALOG_APIKEY"),
-]);
+$client = new EarthquakeCatalogSDK();
 ```
 
 ### 2. List earthquakedatas
 
 ```php
-[$result, $err] = $client->EarthquakeData()->list();
-if ($err) { throw new \Exception($err); }
-
-if (is_array($result)) {
-    foreach ($result as $item) {
-        $d = $item->data_get();
-        echo $d["id"] . " " . $d["name"] . "\n";
+try {
+    $result = $client->earthquakedata()->list();
+    if (is_array($result)) {
+        foreach ($result as $item) {
+            $d = $item->data_get();
+            echo $d["id"] . " " . $d["name"] . "\n";
+        }
     }
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
 }
 ```
 
-### 3. Load a earthquakedata
+### 3. Load an earthquakedata
 
 ```php
-[$result, $err] = $client->EarthquakeData()->load(["id" => "example_id"]);
-if ($err) { throw new \Exception($err); }
-print_r($result);
+try {
+    $result = $client->earthquakedata()->load(["id" => "example_id"]);
+    print_r($result);
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 
@@ -60,28 +64,31 @@ print_r($result);
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -95,7 +102,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = EarthquakeCatalogSDK::test();
 
-[$result, $err] = $client->EarthquakeCatalog()->load(["id" => "test01"]);
+$result = $client->earthquakedata()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -129,8 +136,7 @@ $client = new EarthquakeCatalogSDK([
 Create a `.env.local` file at the project root:
 
 ```
-EARTHQUAKE-CATALOG_TEST_LIVE=TRUE
-EARTHQUAKE-CATALOG_APIKEY=<your-key>
+EARTHQUAKE_CATALOG_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -153,7 +159,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -200,8 +205,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -245,7 +254,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `const earthquake_data = client.EarthquakeData()`
+Create an instance: `const earthquake_data = client.earthquake_data`
 
 #### Operations
 
@@ -268,19 +277,19 @@ Create an instance: `const earthquake_data = client.EarthquakeData()`
 #### Example: Load
 
 ```ts
-const earthquake_data = await client.EarthquakeData().load({ id: 'earthquake_data_id' })
+const earthquake_data = await client.earthquake_data.load({ id: 'earthquake_data_id' })
 ```
 
 #### Example: List
 
 ```ts
-const earthquake_datas = await client.EarthquakeData().list()
+const earthquake_datas = await client.earthquake_data.list()
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `const service_information = client.ServiceInformation()`
+Create an instance: `const service_information = client.service_information`
 
 #### Operations
 
@@ -292,13 +301,13 @@ Create an instance: `const service_information = client.ServiceInformation()`
 #### Example: Load
 
 ```ts
-const service_information = await client.ServiceInformation().load({ id: 'service_information_id' })
+const service_information = await client.service_information.load({ id: 'service_information_id' })
 ```
 
 #### Example: List
 
 ```ts
-const service_informations = await client.ServiceInformation().list()
+const service_informations = await client.service_information.list()
 ```
 
 
@@ -373,11 +382,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$earthquakedata = $client->earthquakedata();
+$earthquakedata->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $earthquakedata->dataGet() now returns the loaded earthquakedata data
+// $earthquakedata->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

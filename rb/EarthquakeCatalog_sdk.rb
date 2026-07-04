@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'EarthquakeCatalog_types'
+
 
 class EarthquakeCatalogSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class EarthquakeCatalogSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class EarthquakeCatalogSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue EarthquakeCatalogError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = EarthquakeCatalogHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class EarthquakeCatalogSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,22 +198,36 @@ class EarthquakeCatalogSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.earthquake_data.list / client.earthquake_data.load({ "id" => ... })
+  def earthquake_data
+    require_relative 'entity/earthquake_data_entity'
+    @earthquake_data ||= EarthquakeDataEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.earthquake_data instead.
   def EarthquakeData(data = nil)
     require_relative 'entity/earthquake_data_entity'
     EarthquakeDataEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.service_information.list / client.service_information.load({ "id" => ... })
+  def service_information
+    require_relative 'entity/service_information_entity'
+    @service_information ||= ServiceInformationEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.service_information instead.
   def ServiceInformation(data = nil)
     require_relative 'entity/service_information_entity'
     ServiceInformationEntity.new(self, data)

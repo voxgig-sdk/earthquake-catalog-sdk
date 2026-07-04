@@ -43,16 +43,14 @@ class EarthquakeDataEntityTest < Minitest::Test
     earthquake_data_ref01_ent = client.EarthquakeData(nil)
     earthquake_data_ref01_match = {}
 
-    earthquake_data_ref01_list_result, err = earthquake_data_ref01_ent.list(earthquake_data_ref01_match, nil)
-    assert_nil err
+    earthquake_data_ref01_list_result = earthquake_data_ref01_ent.list(earthquake_data_ref01_match, nil)
     assert earthquake_data_ref01_list_result.is_a?(Array)
 
     # LOAD
     earthquake_data_ref01_match_dt0 = {
       "id" => earthquake_data_ref01_data["id"],
     }
-    earthquake_data_ref01_data_dt0_loaded, err = earthquake_data_ref01_ent.load(earthquake_data_ref01_match_dt0, nil)
-    assert_nil err
+    earthquake_data_ref01_data_dt0_loaded = earthquake_data_ref01_ent.load(earthquake_data_ref01_match_dt0, nil)
     earthquake_data_ref01_data_dt0_load_result = Helpers.to_map(earthquake_data_ref01_data_dt0_loaded)
     assert !earthquake_data_ref01_data_dt0_load_result.nil?
     assert_equal earthquake_data_ref01_data_dt0_load_result["id"], earthquake_data_ref01_data["id"]
@@ -93,7 +91,6 @@ def earthquake_data_basic_setup(extra)
     "EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID" => idmap,
     "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
     "EARTHQUAKECATALOG_TEST_EXPLAIN" => "FALSE",
-    "EARTHQUAKECATALOG_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +102,6 @@ def earthquake_data_basic_setup(extra)
   if env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["EARTHQUAKECATALOG_APIKEY"],
       },
       extra || {},
     ])

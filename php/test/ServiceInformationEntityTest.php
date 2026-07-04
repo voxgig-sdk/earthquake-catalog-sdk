@@ -50,14 +50,12 @@ class ServiceInformationEntityTest extends TestCase
         $service_information_ref01_ent = $client->ServiceInformation(null);
         $service_information_ref01_match = [];
 
-        [$service_information_ref01_list_result, $err] = $service_information_ref01_ent->list($service_information_ref01_match, null);
-        $this->assertNull($err);
+        $service_information_ref01_list_result = $service_information_ref01_ent->list($service_information_ref01_match, null);
         $this->assertIsArray($service_information_ref01_list_result);
 
         // LOAD
         $service_information_ref01_match_dt0 = [];
-        [$service_information_ref01_data_dt0_loaded, $err] = $service_information_ref01_ent->load($service_information_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $service_information_ref01_data_dt0_loaded = $service_information_ref01_ent->load($service_information_ref01_match_dt0, null);
         $this->assertNotNull($service_information_ref01_data_dt0_loaded);
 
     }
@@ -92,7 +90,6 @@ function service_information_basic_setup($extra)
         "EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID" => $idmap,
         "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
         "EARTHQUAKECATALOG_TEST_EXPLAIN" => "FALSE",
-        "EARTHQUAKECATALOG_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function service_information_basic_setup($extra)
     if ($env["EARTHQUAKECATALOG_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["EARTHQUAKECATALOG_APIKEY"],
             ],
             $extra ?? [],
         ]);

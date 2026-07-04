@@ -102,7 +102,6 @@ function earthquake_data_basic_setup(extra)
     ["EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID"] = idmap,
     ["EARTHQUAKECATALOG_TEST_LIVE"] = "FALSE",
     ["EARTHQUAKECATALOG_TEST_EXPLAIN"] = "FALSE",
-    ["EARTHQUAKECATALOG_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -114,7 +113,6 @@ function earthquake_data_basic_setup(extra)
   if env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["EARTHQUAKECATALOG_APIKEY"],
       },
       extra or {},
     })

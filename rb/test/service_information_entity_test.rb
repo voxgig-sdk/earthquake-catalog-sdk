@@ -43,14 +43,12 @@ class ServiceInformationEntityTest < Minitest::Test
     service_information_ref01_ent = client.ServiceInformation(nil)
     service_information_ref01_match = {}
 
-    service_information_ref01_list_result, err = service_information_ref01_ent.list(service_information_ref01_match, nil)
-    assert_nil err
+    service_information_ref01_list_result = service_information_ref01_ent.list(service_information_ref01_match, nil)
     assert service_information_ref01_list_result.is_a?(Array)
 
     # LOAD
     service_information_ref01_match_dt0 = {}
-    service_information_ref01_data_dt0_loaded, err = service_information_ref01_ent.load(service_information_ref01_match_dt0, nil)
-    assert_nil err
+    service_information_ref01_data_dt0_loaded = service_information_ref01_ent.load(service_information_ref01_match_dt0, nil)
     assert !service_information_ref01_data_dt0_loaded.nil?
 
   end
@@ -89,7 +87,6 @@ def service_information_basic_setup(extra)
     "EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID" => idmap,
     "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
     "EARTHQUAKECATALOG_TEST_EXPLAIN" => "FALSE",
-    "EARTHQUAKECATALOG_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -101,7 +98,6 @@ def service_information_basic_setup(extra)
   if env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["EARTHQUAKECATALOG_APIKEY"],
       },
       extra || {},
     ])

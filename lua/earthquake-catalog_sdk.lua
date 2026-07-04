@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:earthquake_data():list() / client:earthquake_data():load({ id = ... })
+function EarthquakeCatalogSDK:earthquake_data(data)
+  local EntityMod = require("entity.earthquake_data_entity")
+  if data == nil then
+    if self._earthquake_data == nil then
+      self._earthquake_data = EntityMod.new(self, nil)
+    end
+    return self._earthquake_data
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:earthquake_data() instead.
 function EarthquakeCatalogSDK:EarthquakeData(data)
   local EntityMod = require("entity.earthquake_data_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:service_information():list() / client:service_information():load({ id = ... })
+function EarthquakeCatalogSDK:service_information(data)
+  local EntityMod = require("entity.service_information_entity")
+  if data == nil then
+    if self._service_information == nil then
+      self._service_information = EntityMod.new(self, nil)
+    end
+    return self._service_information
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:service_information() instead.
 function EarthquakeCatalogSDK:ServiceInformation(data)
   local EntityMod = require("entity.service_information_entity")
   return EntityMod.new(self, data)

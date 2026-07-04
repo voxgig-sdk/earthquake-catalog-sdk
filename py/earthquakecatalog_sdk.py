@@ -144,16 +144,23 @@ class EarthquakeCatalogSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class EarthquakeCatalogSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,20 +212,42 @@ class EarthquakeCatalogSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def earthquake_data(self):
+        """Idiomatic facade: client.earthquake_data.list() / client.earthquake_data.load({"id": ...})."""
+        from entity.earthquake_data_entity import EarthquakeDataEntity
+        cached = getattr(self, "_earthquake_data", None)
+        if cached is None:
+            cached = EarthquakeDataEntity(self, None)
+            self._earthquake_data = cached
+        return cached
 
     def EarthquakeData(self, data=None):
+        # Deprecated: use client.earthquake_data instead.
         from entity.earthquake_data_entity import EarthquakeDataEntity
         return EarthquakeDataEntity(self, data)
 
 
+    @property
+    def service_information(self):
+        """Idiomatic facade: client.service_information.list() / client.service_information.load({"id": ...})."""
+        from entity.service_information_entity import ServiceInformationEntity
+        cached = getattr(self, "_service_information", None)
+        if cached is None:
+            cached = ServiceInformationEntity(self, None)
+            self._service_information = cached
+        return cached
+
     def ServiceInformation(self, data=None):
+        # Deprecated: use client.service_information instead.
         from entity.service_information_entity import ServiceInformationEntity
         return ServiceInformationEntity(self, data)
 

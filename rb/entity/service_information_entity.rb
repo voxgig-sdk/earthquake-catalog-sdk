@@ -45,6 +45,7 @@ class ServiceInformationEntity
     end
   end
 
+  # @return [ServiceInformation, Hash] the current ServiceInformation data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class ServiceInformationEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of ServiceInformation fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single ServiceInformation.
+  #
+  # @param reqmatch [ServiceInformationLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [ServiceInformation, Hash] the loaded ServiceInformation; raises EarthquakeCatalogError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class ServiceInformationEntity
 
 
   
+  # List ServiceInformation items matching the given filter.
+  #
+  # @param reqmatch [ServiceInformationListMatch, Hash, nil] match filter (any subset of ServiceInformation fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<ServiceInformation>, Array] the matching ServiceInformation items; raises EarthquakeCatalogError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

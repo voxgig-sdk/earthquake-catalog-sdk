@@ -135,14 +135,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID': {},
     'EARTHQUAKECATALOG_TEST_LIVE': 'FALSE',
-    'EARTHQUAKECATALOG_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.EARTHQUAKECATALOG_TEST_LIVE
 
   if (live) {
     const client = new EarthquakeCatalogSDK({
-      apikey: env.EARTHQUAKECATALOG_APIKEY,
     })
 
     let idmap: any = env['EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID']

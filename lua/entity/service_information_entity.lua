@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ServiceInformationLoadMatch
+---@param ctrl? table
+---@return ServiceInformation
+---@return string? err
 function ServiceInformationEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch ServiceInformationListMatch
+---@param ctrl? table
+---@return ServiceInformation[]
+---@return string? err
 function ServiceInformationEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

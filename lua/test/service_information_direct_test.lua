@@ -107,14 +107,12 @@ function service_information_direct_setup(mockres)
   local env = runner.env_override({
     ["EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID"] = {},
     ["EARTHQUAKECATALOG_TEST_LIVE"] = "FALSE",
-    ["EARTHQUAKECATALOG_APIKEY"] = "NONE",
   })
 
   local live = env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["EARTHQUAKECATALOG_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

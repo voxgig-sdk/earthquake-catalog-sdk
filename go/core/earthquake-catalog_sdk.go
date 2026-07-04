@@ -245,11 +245,17 @@ func (sdk *EarthquakeCatalogSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// EarthquakeData returns a EarthquakeData entity bound to this client.
+// Idiomatic usage: client.EarthquakeData(nil).List(nil, nil) or
+// client.EarthquakeData(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *EarthquakeCatalogSDK) EarthquakeData(data map[string]any) EarthquakeCatalogEntity {
 	return NewEarthquakeDataEntityFunc(sdk, data)
 }
 
 
+// ServiceInformation returns a ServiceInformation entity bound to this client.
+// Idiomatic usage: client.ServiceInformation(nil).List(nil, nil) or
+// client.ServiceInformation(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *EarthquakeCatalogSDK) ServiceInformation(data map[string]any) EarthquakeCatalogEntity {
 	return NewServiceInformationEntityFunc(sdk, data)
 }

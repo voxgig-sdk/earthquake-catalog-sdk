@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch EarthquakeDataLoadMatch
+---@param ctrl? table
+---@return EarthquakeData
+---@return string? err
 function EarthquakeDataEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch EarthquakeDataListMatch
+---@param ctrl? table
+---@return EarthquakeData[]
+---@return string? err
 function EarthquakeDataEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

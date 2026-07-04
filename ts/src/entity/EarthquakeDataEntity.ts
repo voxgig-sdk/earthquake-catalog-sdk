@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  EarthquakeData,
+  EarthquakeDataLoadMatch,
+  EarthquakeDataListMatch,
+} from '../EarthquakeCatalogTypes'
 
 // TODO: needs Entity superclass
-class EarthquakeDataEntity extends EarthquakeCatalogEntityBase {
+class EarthquakeDataEntity extends EarthquakeCatalogEntityBase<EarthquakeData> {
 
   constructor(client: EarthquakeCatalogSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class EarthquakeDataEntity extends EarthquakeCatalogEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: EarthquakeDataLoadMatch, ctrl?: Control): Promise<EarthquakeData> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class EarthquakeDataEntity extends EarthquakeCatalogEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<EarthquakeData> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: EarthquakeDataListMatch, ctrl?: Control): Promise<EarthquakeData[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class EarthquakeDataEntity extends EarthquakeCatalogEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<EarthquakeData[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

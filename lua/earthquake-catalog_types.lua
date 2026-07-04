@@ -1,0 +1,29 @@
+-- Typed models for the EarthquakeCatalog SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
+-- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class EarthquakeData
+---@field count? number
+---@field geometry? table
+---@field id? string
+---@field max_allowed? number
+---@field property? table
+---@field type? string
+
+---@class EarthquakeDataLoadMatch
+
+---@class EarthquakeDataListMatch
+
+---@class ServiceInformation
+
+---@class ServiceInformationLoadMatch
+
+---@class ServiceInformationListMatch
+
+local M = {}
+
+return M

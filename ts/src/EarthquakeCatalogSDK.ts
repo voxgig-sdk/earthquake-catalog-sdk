@@ -3,6 +3,8 @@
 import { EarthquakeDataEntity } from './entity/EarthquakeDataEntity'
 import { ServiceInformationEntity } from './entity/ServiceInformationEntity'
 
+export type * from './EarthquakeCatalogTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class EarthquakeCatalogSDK {
 
 
 
+  _earthquake_data?: EarthquakeDataEntity
+
+  // Idiomatic facade: `client.earthquake_data.list()` / `client.earthquake_data.load({ id })`.
+  get earthquake_data(): EarthquakeDataEntity {
+    return (this._earthquake_data ??= new EarthquakeDataEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.earthquake_data` instead. */
   EarthquakeData(data?: any) {
     const self = this
     return new EarthquakeDataEntity(self,data)
   }
 
 
+  _service_information?: ServiceInformationEntity
+
+  // Idiomatic facade: `client.service_information.list()` / `client.service_information.load({ id })`.
+  get service_information(): ServiceInformationEntity {
+    return (this._service_information ??= new ServiceInformationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.service_information` instead. */
   ServiceInformation(data?: any) {
     const self = this
     return new ServiceInformationEntity(self,data)

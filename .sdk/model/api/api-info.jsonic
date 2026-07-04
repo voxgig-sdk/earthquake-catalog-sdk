@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "USGS Earthquake Hazards Program"
         url: "https://earthquake.usgs.gov"

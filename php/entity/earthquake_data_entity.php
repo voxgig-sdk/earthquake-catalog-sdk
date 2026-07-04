@@ -55,6 +55,9 @@ class EarthquakeDataEntity
         return new EarthquakeDataEntity($this->_client, $opts);
     }
 
+    /**
+     * @param EarthquakeData|array $args EarthquakeData data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class EarthquakeDataEntity
         }
     }
 
+    /**
+     * @return EarthquakeData|array The current EarthquakeData data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of EarthquakeData fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class EarthquakeDataEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of EarthquakeData fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -84,7 +96,16 @@ class EarthquakeDataEntity
     }
 
     
-    public function load($reqmatch, $ctrl = null): array
+    /**
+     * Load a single EarthquakeData.
+     *
+     * @param EarthquakeDataLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed EarthquakeDataLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return EarthquakeData|array The loaded EarthquakeData as an assoc-array at the
+     *   SDK boundary; throws EarthquakeCatalogError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -110,7 +131,16 @@ class EarthquakeDataEntity
 
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List EarthquakeData items matching the given filter.
+     *
+     * @param EarthquakeDataListMatch|array|null $reqmatch Match filter (any subset
+     *   of EarthquakeData fields) as an assoc-array; EarthquakeDataListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return EarthquakeData[]|array A list of EarthquakeData items as assoc-arrays at
+     *   the SDK boundary; throws EarthquakeCatalogError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -138,7 +168,7 @@ class EarthquakeDataEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 
