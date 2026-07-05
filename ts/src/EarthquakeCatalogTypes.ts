@@ -14,14 +14,30 @@ export interface EarthquakeData {
   type?: string
 }
 
-export type EarthquakeDataLoadMatch = Partial<EarthquakeData>
+export interface EarthquakeDataLoadMatch {
+  count?: number
+  geometry?: Record<string, any>
+  id: string
+  max_allowed?: number
+  property?: Record<string, any>
+  type?: string
+}
 
-export type EarthquakeDataListMatch = Partial<EarthquakeData>
+export interface EarthquakeDataListMatch {
+  count?: number
+  geometry?: Record<string, any>
+  id?: string
+  max_allowed?: number
+  property?: Record<string, any>
+  type?: string
+}
 
 export interface ServiceInformation {
 }
 
-export type ServiceInformationLoadMatch = Partial<ServiceInformation>
+export interface ServiceInformationLoadMatch {
+}
 
-export type ServiceInformationListMatch = Partial<ServiceInformation>
+export interface ServiceInformationListMatch {
+}
 

@@ -8,7 +8,7 @@ Complete API reference for the EarthquakeCatalog Python SDK.
 ### Constructor
 
 ```python
-from earthquake-catalog_sdk import EarthquakeCatalogSDK
+from earthquakecatalog_sdk import EarthquakeCatalogSDK
 
 client = EarthquakeCatalogSDK(options)
 ```
@@ -91,21 +91,21 @@ earthquake_data = client.EarthquakeData()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `geometry` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `max_allowed` | ``$INTEGER`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `int` | No |  |
+| `geometry` | `dict` | No |  |
+| `id` | `str` | No |  |
+| `max_allowed` | `int` | No |  |
+| `property` | `dict` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.EarthquakeData().list({})
+results = client.EarthquakeData().list()
 for earthquake_data in results:
     print(earthquake_data)
 ```
@@ -155,12 +155,12 @@ service_information = client.ServiceInformation()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.ServiceInformation().list({})
+results = client.ServiceInformation().list()
 for service_information in results:
     print(service_information)
 ```
@@ -170,7 +170,7 @@ for service_information in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.ServiceInformation().load({"id": "service_information_id"})
+result = client.ServiceInformation().load()
 ```
 
 ### Common Methods

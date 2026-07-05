@@ -8,7 +8,7 @@ Complete API reference for the EarthquakeCatalog PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/earthquake-catalog_sdk.php';
+require_once __DIR__ . '/earthquakecatalog_sdk.php';
 
 $client = new EarthquakeCatalogSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `EarthquakeDataEntity` instance. Pass `null` for no initial data.
 
 Create a new `ServiceInformationEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): EarthquakeCatalogUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,21 +96,21 @@ $earthquake_data = $client->EarthquakeData();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `geometry` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `max_allowed` | ``$INTEGER`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `int` | No |  |
+| `geometry` | `array` | No |  |
+| `id` | `string` | No |  |
+| `max_allowed` | `int` | No |  |
+| `property` | `array` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->EarthquakeData()->list([]);
+$results = $client->EarthquakeData()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -123,19 +123,19 @@ $result = $client->EarthquakeData()->load(["id" => "earthquake_data_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -144,7 +144,7 @@ Set the entity match criteria.
 Create a new `EarthquakeDataEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -159,12 +159,12 @@ $service_information = $client->ServiceInformation();
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->ServiceInformation()->list([]);
+$results = $client->ServiceInformation()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -172,24 +172,24 @@ $results = $client->ServiceInformation()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->ServiceInformation()->load(["id" => "service_information_id"]);
+$result = $client->ServiceInformation()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -198,7 +198,7 @@ Set the entity match criteria.
 Create a new `ServiceInformationEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

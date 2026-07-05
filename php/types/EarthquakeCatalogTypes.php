@@ -23,18 +23,18 @@ class EarthquakeData
     public ?string $type = null;
 }
 
-/** Match filter for EarthquakeData#load (any subset of EarthquakeData fields). */
+/** Request payload for EarthquakeData#load. */
 class EarthquakeDataLoadMatch
 {
     public ?int $count = null;
     public ?array $geometry = null;
-    public ?string $id = null;
+    public string $id;
     public ?int $max_allowed = null;
     public ?array $property = null;
     public ?string $type = null;
 }
 
-/** Match filter for EarthquakeData#list (any subset of EarthquakeData fields). */
+/** Request payload for EarthquakeData#list. */
 class EarthquakeDataListMatch
 {
     public ?int $count = null;
@@ -50,12 +50,12 @@ class ServiceInformation
 {
 }
 
-/** Match filter for ServiceInformation#load (any subset of ServiceInformation fields). */
+/** Request payload for ServiceInformation#load. */
 class ServiceInformationLoadMatch
 {
 }
 
-/** Match filter for ServiceInformation#list (any subset of ServiceInformation fields). */
+/** Request payload for ServiceInformation#list. */
 class ServiceInformationListMatch
 {
 }

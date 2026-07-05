@@ -18,19 +18,17 @@ type EarthquakeData struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// EarthquakeDataLoadMatch mirrors the earthquake_data fields as an all-optional match
-// filter (Go analog of Partial<EarthquakeData>).
+// EarthquakeDataLoadMatch is the typed request payload for EarthquakeData.LoadTyped.
 type EarthquakeDataLoadMatch struct {
 	Count *int `json:"count,omitempty"`
 	Geometry *map[string]any `json:"geometry,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	MaxAllowed *int `json:"max_allowed,omitempty"`
 	Property *map[string]any `json:"property,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
-// EarthquakeDataListMatch mirrors the earthquake_data fields as an all-optional match
-// filter (Go analog of Partial<EarthquakeData>).
+// EarthquakeDataListMatch is the typed request payload for EarthquakeData.ListTyped.
 type EarthquakeDataListMatch struct {
 	Count *int `json:"count,omitempty"`
 	Geometry *map[string]any `json:"geometry,omitempty"`
@@ -44,13 +42,11 @@ type EarthquakeDataListMatch struct {
 type ServiceInformation struct {
 }
 
-// ServiceInformationLoadMatch mirrors the service_information fields as an all-optional match
-// filter (Go analog of Partial<ServiceInformation>).
+// ServiceInformationLoadMatch is the typed request payload for ServiceInformation.LoadTyped.
 type ServiceInformationLoadMatch struct {
 }
 
-// ServiceInformationListMatch mirrors the service_information fields as an all-optional match
-// filter (Go analog of Partial<ServiceInformation>).
+// ServiceInformationListMatch is the typed request payload for ServiceInformation.ListTyped.
 type ServiceInformationListMatch struct {
 }
 

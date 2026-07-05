@@ -128,12 +128,12 @@ const earthquake_data = client.EarthquakeData()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `geometry` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `max_allowed` | ``$INTEGER`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `number` | No |  |
+| `geometry` | `Record<string, any>` | No |  |
+| `id` | `string` | No |  |
+| `max_allowed` | `number` | No |  |
+| `property` | `Record<string, any>` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -202,7 +202,7 @@ const results = await client.ServiceInformation().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.ServiceInformation().load({ id: 'service_information_id' })
+const result = await client.ServiceInformation().load()
 ```
 
 ### Common Methods

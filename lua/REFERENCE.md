@@ -94,12 +94,12 @@ local earthquake_data = client:EarthquakeData(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `geometry` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `max_allowed` | ``$INTEGER`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `number` | No |  |
+| `geometry` | `table` | No |  |
+| `id` | `string` | No |  |
+| `max_allowed` | `number` | No |  |
+| `property` | `table` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -170,7 +170,7 @@ local results, err = client:ServiceInformation():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ServiceInformation():load({ id = "service_information_id" })
+local result, err = client:ServiceInformation():load()
 ```
 
 ### Common Methods

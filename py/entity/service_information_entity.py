@@ -65,8 +65,13 @@ class ServiceInformationEntity:
         return vs.clone(self._match)
 
     
-    def load(self, reqmatch: ServiceInformationLoadMatch, ctrl=None) -> ServiceInformation:
+    def load(self, reqmatch=None, ctrl=None) -> ServiceInformation:
         utility = self._utility
+        # reqmatch is optional: an entity with no id-like key loads with no
+        # match. Treat None as an empty match so client.ServiceInformation().load()
+        # works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "load",
             "ctrl": ctrl,
@@ -87,8 +92,12 @@ class ServiceInformationEntity:
 
 
     
-    def list(self, reqmatch: ServiceInformationListMatch, ctrl=None) -> list[ServiceInformation]:
+    def list(self, reqmatch=None, ctrl=None) -> list[ServiceInformation]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.ServiceInformation().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

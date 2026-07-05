@@ -8,7 +8,7 @@ Complete API reference for the EarthquakeCatalog Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'earthquake-catalog_sdk'
+require_relative 'EarthquakeCatalog_sdk'
 
 client = EarthquakeCatalogSDK.new(options)
 ```
@@ -97,21 +97,21 @@ earthquake_data = client.EarthquakeData
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `geometry` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `max_allowed` | ``$INTEGER`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `Integer` | No |  |
+| `geometry` | `Hash` | No |  |
+| `id` | `String` | No |  |
+| `max_allowed` | `Integer` | No |  |
+| `property` | `Hash` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.EarthquakeData.list(nil)
+results = client.EarthquakeData.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -160,12 +160,12 @@ service_information = client.ServiceInformation
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.ServiceInformation.list(nil)
+results = client.ServiceInformation.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -173,7 +173,7 @@ results = client.ServiceInformation.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.ServiceInformation.load({ "id" => "service_information_id" })
+result = client.ServiceInformation.load()
 ```
 
 ### Common Methods

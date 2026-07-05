@@ -4,6 +4,8 @@
 
 The Golang SDK for the EarthquakeCatalog API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.EarthquakeData(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -58,12 +60,41 @@ func main() {
     }
 
     // Load a single earthquakedata — the value is the loaded record.
-    earthquakedata, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example_id"}, nil)
+    earthquakedata, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example"}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(earthquakedata)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+earthquakedatas, err := client.EarthquakeData(nil).List(nil, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = earthquakedatas
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -113,13 +144,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-earthquakedata, err := client.EarthquakeData(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+earthquakedata, err := client.EarthquakeData(nil).List(
+    nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(earthquakedata) // the loaded mock data
+fmt.Println(earthquakedata) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -207,9 +238,6 @@ All entities implement the `EarthquakeCatalogEntity` interface.
 | --- | --- | --- |
 | `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
 | `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
-| `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -222,16 +250,16 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `Load` | the entity record (`map[string]any`) |
 | `List` | a `[]any` of entity records |
 
 Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    earthquakedata, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example_id"}, nil)
+    earthquakedata, err := client.EarthquakeData(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // earthquakedata is the loaded record
+    // earthquakedata is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -282,12 +310,12 @@ Create an instance: `earthquake_data := client.EarthquakeData(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | ``$INTEGER`` |  |
-| `geometry` | ``$OBJECT`` |  |
-| `id` | ``$STRING`` |  |
-| `max_allowed` | ``$INTEGER`` |  |
-| `property` | ``$OBJECT`` |  |
-| `type` | ``$STRING`` |  |
+| `count` | `int` |  |
+| `geometry` | `map[string]any` |  |
+| `id` | `string` |  |
+| `max_allowed` | `int` |  |
+| `property` | `map[string]any` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -324,7 +352,7 @@ Create an instance: `service_information := client.ServiceInformation(nil)`
 #### Example: Load
 
 ```go
-service_information, err := client.ServiceInformation(nil).Load(map[string]any{"id": "service_information_id"}, nil)
+service_information, err := client.ServiceInformation(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -342,12 +370,16 @@ fmt.Println(service_informations) // the array of records
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -364,9 +396,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -407,14 +439,14 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `Load`, the entity
+Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
 earthquakedata := client.EarthquakeData(nil)
-earthquakedata.Load(map[string]any{"id": "example_id"}, nil)
+earthquakedata.List(nil, nil)
 
-// earthquakedata.Data() now returns the loaded earthquakedata data
+// earthquakedata.Data() now returns the earthquakedata data from the last list
 // earthquakedata.Match() returns the last match criteria
 ```
 

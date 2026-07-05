@@ -37,7 +37,7 @@ EarthquakeData = Struct.new(
   keyword_init: true
 )
 
-# Match filter for EarthquakeData#load (any subset of EarthquakeData fields).
+# Request payload for EarthquakeData#load.
 #
 # @!attribute [rw] count
 #   @return [Integer, nil]
@@ -46,7 +46,7 @@ EarthquakeData = Struct.new(
 #   @return [Hash, nil]
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] max_allowed
 #   @return [Integer, nil]
@@ -66,7 +66,7 @@ EarthquakeDataLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for EarthquakeData#list (any subset of EarthquakeData fields).
+# Request payload for EarthquakeData#list.
 #
 # @!attribute [rw] count
 #   @return [Integer, nil]
@@ -99,11 +99,11 @@ EarthquakeDataListMatch = Struct.new(
 class ServiceInformation
 end
 
-# Match filter for ServiceInformation#load (any subset of ServiceInformation fields).
+# Request payload for ServiceInformation#load.
 class ServiceInformationLoadMatch
 end
 
-# Match filter for ServiceInformation#list (any subset of ServiceInformation fields).
+# Request payload for ServiceInformation#list.
 class ServiceInformationListMatch
 end
 

@@ -101,12 +101,12 @@ earthquake_data := client.EarthquakeData(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `geometry` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `max_allowed` | ``$INTEGER`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `int` | No |  |
+| `geometry` | `map[string]any` | No |  |
+| `id` | `string` | No |  |
+| `max_allowed` | `int` | No |  |
+| `property` | `map[string]any` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -171,7 +171,7 @@ results, err := client.ServiceInformation(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.ServiceInformation(nil).Load(map[string]any{"id": "service_information_id"}, nil)
+result, err := client.ServiceInformation(nil).Load(nil, nil)
 ```
 
 ### Common Methods

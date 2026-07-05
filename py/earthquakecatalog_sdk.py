@@ -221,13 +221,13 @@ class EarthquakeCatalogSDK:
 
 
     def EarthquakeData(self, data=None) -> "EarthquakeDataEntity":
-        """Entity factory: client.EarthquakeData().list({}) / client.EarthquakeData().load({"id": ...})."""
+        """Entity factory: client.EarthquakeData().list() / client.EarthquakeData().load({"id": ...})."""
         from entity.earthquake_data_entity import EarthquakeDataEntity
         return EarthquakeDataEntity(self, data)
 
 
     def ServiceInformation(self, data=None) -> "ServiceInformationEntity":
-        """Entity factory: client.ServiceInformation().list({}) / client.ServiceInformation().load({"id": ...})."""
+        """Entity factory: client.ServiceInformation().list() / client.ServiceInformation().load({"id": ...})."""
         from entity.service_information_entity import ServiceInformationEntity
         return ServiceInformationEntity(self, data)
 

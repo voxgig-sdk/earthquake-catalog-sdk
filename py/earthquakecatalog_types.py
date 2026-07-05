@@ -25,10 +25,13 @@ class EarthquakeData(TypedDict, total=False):
     type: str
 
 
-class EarthquakeDataLoadMatch(TypedDict, total=False):
+class EarthquakeDataLoadMatchRequired(TypedDict):
+    id: str
+
+
+class EarthquakeDataLoadMatch(EarthquakeDataLoadMatchRequired, total=False):
     count: int
     geometry: dict
-    id: str
     max_allowed: int
     property: dict
     type: str
