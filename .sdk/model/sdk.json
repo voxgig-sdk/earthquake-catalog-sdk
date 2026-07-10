@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -1070,14 +1067,17 @@
           "name": "Public Domain",
           "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "USGS Earthquake Catalog API",
             "url": "https://earthquake.usgs.gov/fdsnws/event/1"
           }
         ],
+        "summary": "This API allows users to perform custom searches for earthquake information based on various parameters, such as location, time, and magnitude.",
         "title": "Earthquake Catalog API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://earthquake.usgs.gov"
       },
       "option": {},
       "target": {
@@ -1130,6 +1130,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -1180,6 +1183,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

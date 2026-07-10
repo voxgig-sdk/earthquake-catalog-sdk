@@ -50,21 +50,21 @@ import (
 func main() {
     client := sdk.New()
 
-    // List earthquakedata records — the value is the array of records itself.
-    earthquakedatas, err := client.EarthquakeData(nil).List(nil, nil)
+    // List earthquakeData records — the value is the array of records itself.
+    earthquakeDatas, err := client.EarthquakeData(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range earthquakedatas.([]any) {
+    for _, item := range earthquakeDatas.([]any) {
         fmt.Println(item)
     }
 
-    // Load a single earthquakedata — the value is the loaded record.
-    earthquakedata, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example"}, nil)
+    // Load a single earthquakeData — the value is the loaded record.
+    earthquakeData, err := client.EarthquakeData(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(earthquakedata)
+    fmt.Println(earthquakeData)
 }
 ```
 
@@ -144,13 +144,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-earthquakedata, err := client.EarthquakeData(nil).List(
+earthquakeData, err := client.EarthquakeData(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(earthquakedata) // the returned mock data
+fmt.Println(earthquakeData) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -257,9 +257,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    earthquakedata, err := client.EarthquakeData(nil).List(map[string]any{/* fields */}, nil)
+    earthquakeData, err := client.EarthquakeData(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // earthquakedata is the returned record
+    // earthquakeData is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -297,7 +297,7 @@ API path: `/catalogs`
 
 ### EarthquakeData
 
-Create an instance: `earthquake_data := client.EarthquakeData(nil)`
+Create an instance: `earthquakeData := client.EarthquakeData(nil)`
 
 #### Operations
 
@@ -320,27 +320,27 @@ Create an instance: `earthquake_data := client.EarthquakeData(nil)`
 #### Example: Load
 
 ```go
-earthquake_data, err := client.EarthquakeData(nil).Load(map[string]any{"id": "earthquake_data_id"}, nil)
+earthquakeData, err := client.EarthquakeData(nil).Load(map[string]any{"id": "earthquake_data_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(earthquake_data) // the loaded record
+fmt.Println(earthquakeData) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-earthquake_datas, err := client.EarthquakeData(nil).List(nil, nil)
+earthquakeDatas, err := client.EarthquakeData(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(earthquake_datas) // the array of records
+fmt.Println(earthquakeDatas) // the array of records
 ```
 
 
 ### ServiceInformation
 
-Create an instance: `service_information := client.ServiceInformation(nil)`
+Create an instance: `serviceInformation := client.ServiceInformation(nil)`
 
 #### Operations
 
@@ -352,21 +352,21 @@ Create an instance: `service_information := client.ServiceInformation(nil)`
 #### Example: Load
 
 ```go
-service_information, err := client.ServiceInformation(nil).Load(nil, nil)
+serviceInformation, err := client.ServiceInformation(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(service_information) // the loaded record
+fmt.Println(serviceInformation) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-service_informations, err := client.ServiceInformation(nil).List(nil, nil)
+serviceInformations, err := client.ServiceInformation(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(service_informations) // the array of records
+fmt.Println(serviceInformations) // the array of records
 ```
 
 

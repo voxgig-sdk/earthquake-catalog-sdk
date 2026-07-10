@@ -20,9 +20,9 @@ main: {
           url: "https://earthquake.usgs.gov/fdsnws/event/1"
         }
       ]
+      summary: "This API allows users to perform custom searches for earthquake information based on various parameters, such as location, time, and magnitude."
       title: "Earthquake Catalog API"
       version: "1.0.0"
+      website: "https://earthquake.usgs.gov"
     }
   }
-}
-

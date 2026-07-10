@@ -94,7 +94,8 @@ same parameters as `Direct()`.
 ## EarthquakeDataEntity
 
 ```go
-earthquake_data := client.EarthquakeData(nil)
+earthquakeData := client.EarthquakeData(nil)
+fmt.Println(earthquakeData.GetName()) // "earthquake_data"
 ```
 
 ### Fields
@@ -116,6 +117,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.EarthquakeData(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -124,6 +129,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.EarthquakeData(nil).Load(map[string]any{"id": "earthquake_data_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -153,7 +162,8 @@ Return the entity name.
 ## ServiceInformationEntity
 
 ```go
-service_information := client.ServiceInformation(nil)
+serviceInformation := client.ServiceInformation(nil)
+fmt.Println(serviceInformation.GetName()) // "service_information"
 ```
 
 ### Operations
@@ -164,6 +174,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.ServiceInformation(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -172,6 +186,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.ServiceInformation(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
