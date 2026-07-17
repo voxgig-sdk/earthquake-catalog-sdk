@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- EarthquakeCatalog SDK exists test
 
 local sdk = require("earthquake-catalog_sdk")
 
