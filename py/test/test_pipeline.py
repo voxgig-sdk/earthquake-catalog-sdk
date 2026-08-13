@@ -16,11 +16,11 @@
 import pytest
 
 from earthquakecatalog_sdk import EarthquakeCatalogSDK
-from core.error import EarthquakeCatalogError
-from core.result import EarthquakeCatalogResult
-from core.response import EarthquakeCatalogResponse
-from core.spec import EarthquakeCatalogSpec
-from feature.base_feature import EarthquakeCatalogBaseFeature
+from earthquakecatalog_sdk.core.error import EarthquakeCatalogError
+from earthquakecatalog_sdk.core.result import EarthquakeCatalogResult
+from earthquakecatalog_sdk.core.response import EarthquakeCatalogResponse
+from earthquakecatalog_sdk.core.spec import EarthquakeCatalogSpec
+from earthquakecatalog_sdk.feature.base_feature import EarthquakeCatalogBaseFeature
 
 
 def _client():

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from earthquakecatalog_sdk.utility.voxgig_struct import voxgig_struct as vs
 from earthquakecatalog_sdk import EarthquakeCatalogSDK
-from core import helpers
+from earthquakecatalog_sdk.core import helpers
 from test import runner
 
 
@@ -95,11 +95,11 @@ def _earthquake_data_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID": {},
-        "EARTHQUAKECATALOG_TEST_LIVE": "FALSE",
+        "EARTHQUAKE_CATALOG_TEST_EARTHQUAKE_DATA_ENTID": {},
+        "EARTHQUAKE_CATALOG_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("EARTHQUAKECATALOG_TEST_LIVE") == "TRUE"
+    live = env.get("EARTHQUAKE_CATALOG_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

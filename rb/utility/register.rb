@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ EarthquakeCatalogUtility.registrar = ->(u) {
   u.prepare_params = EarthquakeCatalogUtilities::PrepareParams
   u.prepare_path = EarthquakeCatalogUtilities::PreparePath
   u.prepare_query = EarthquakeCatalogUtilities::PrepareQuery
+  u.graphql_body = EarthquakeCatalogUtilities::GraphqlBody
+  u.graphql_errors = EarthquakeCatalogUtilities::GraphqlErrors
   u.result_basic = EarthquakeCatalogUtilities::ResultBasic
   u.result_body = EarthquakeCatalogUtilities::ResultBody
   u.result_headers = EarthquakeCatalogUtilities::ResultHeaders

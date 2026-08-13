@@ -19,10 +19,10 @@
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] max_allowed
+# @!attribute [rw] maxAllowed
 #   @return [Integer, nil]
 #
-# @!attribute [rw] property
+# @!attribute [rw] properties
 #   @return [Hash, nil]
 #
 # @!attribute [rw] type
@@ -31,8 +31,8 @@ EarthquakeData = Struct.new(
   :count,
   :geometry,
   :id,
-  :max_allowed,
-  :property,
+  :maxAllowed,
+  :properties,
   :type,
   keyword_init: true
 )
@@ -48,10 +48,10 @@ EarthquakeData = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] max_allowed
+# @!attribute [rw] maxAllowed
 #   @return [Integer, nil]
 #
-# @!attribute [rw] property
+# @!attribute [rw] properties
 #   @return [Hash, nil]
 #
 # @!attribute [rw] type
@@ -60,8 +60,8 @@ EarthquakeDataLoadMatch = Struct.new(
   :count,
   :geometry,
   :id,
-  :max_allowed,
-  :property,
+  :maxAllowed,
+  :properties,
   :type,
   keyword_init: true
 )
@@ -77,10 +77,10 @@ EarthquakeDataLoadMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] max_allowed
+# @!attribute [rw] maxAllowed
 #   @return [Integer, nil]
 #
-# @!attribute [rw] property
+# @!attribute [rw] properties
 #   @return [Hash, nil]
 #
 # @!attribute [rw] type
@@ -89,8 +89,8 @@ EarthquakeDataListMatch = Struct.new(
   :count,
   :geometry,
   :id,
-  :max_allowed,
-  :property,
+  :maxAllowed,
+  :properties,
   :type,
   keyword_init: true
 )

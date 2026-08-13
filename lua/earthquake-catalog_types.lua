@@ -10,24 +10,24 @@
 ---@field count? number
 ---@field geometry? table
 ---@field id? string
----@field max_allowed? number
----@field property? table
+---@field maxAllowed? number
+---@field properties? table
 ---@field type? string
 
 ---@class EarthquakeDataLoadMatch
 ---@field count? number
 ---@field geometry? table
 ---@field id string
----@field max_allowed? number
----@field property? table
+---@field maxAllowed? number
+---@field properties? table
 ---@field type? string
 
 ---@class EarthquakeDataListMatch
 ---@field count? number
 ---@field geometry? table
 ---@field id? string
----@field max_allowed? number
----@field property? table
+---@field maxAllowed? number
+---@field properties? table
 ---@field type? string
 
 ---@class ServiceInformation

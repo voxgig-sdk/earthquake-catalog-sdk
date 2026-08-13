@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import EarthquakeCatalogControl
-from core.error import EarthquakeCatalogError
-from core.result import EarthquakeCatalogResult
-from core.spec import EarthquakeCatalogSpec
+from earthquakecatalog_sdk.config import make_config
+from earthquakecatalog_sdk.features import _make_feature
+from earthquakecatalog_sdk.core.control import EarthquakeCatalogControl
+from earthquakecatalog_sdk.core.error import EarthquakeCatalogError
+from earthquakecatalog_sdk.core.result import EarthquakeCatalogResult
+from earthquakecatalog_sdk.core.spec import EarthquakeCatalogSpec
 
 
 # True when this SDK was generated with the named feature.

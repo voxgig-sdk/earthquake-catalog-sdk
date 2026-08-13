@@ -23,8 +23,8 @@ module EarthquakeCatalogTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("EARTHQUAKECATALOG_TEST_LIVE")
-    override = getenv("EARTHQUAKECATALOG_TEST_OVERRIDE")
+    live = getenv("EARTHQUAKE_CATALOG_TEST_LIVE")
+    override = getenv("EARTHQUAKE_CATALOG_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module EarthquakeCatalogTestRunner
       end
     end
 
-    explain = getenv("EARTHQUAKECATALOG_TEST_EXPLAIN")
-    m["EARTHQUAKECATALOG_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("EARTHQUAKE_CATALOG_TEST_EXPLAIN")
+    m["EARTHQUAKE_CATALOG_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

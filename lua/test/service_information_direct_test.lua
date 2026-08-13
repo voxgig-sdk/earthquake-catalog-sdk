@@ -105,11 +105,11 @@ function service_information_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID"] = {},
-    ["EARTHQUAKECATALOG_TEST_LIVE"] = "FALSE",
+    ["EARTHQUAKE_CATALOG_TEST_SERVICE_INFORMATION_ENTID"] = {},
+    ["EARTHQUAKE_CATALOG_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
+  local live = env["EARTHQUAKE_CATALOG_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

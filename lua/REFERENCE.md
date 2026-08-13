@@ -97,8 +97,8 @@ local earthquake_data = client:EarthquakeData(nil)
 | `count` | `number` | No |  |
 | `geometry` | `table` | No |  |
 | `id` | `string` | No |  |
-| `max_allowed` | `number` | No |  |
-| `property` | `table` | No |  |
+| `maxAllowed` | `number` | No |  |
+| `properties` | `table` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

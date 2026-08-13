@@ -26,8 +26,8 @@ import {
 describe('EarthquakeDataEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when EARTHQUAKECATALOG_TEST_LIVE=TRUE.
-  afterEach(liveDelay('EARTHQUAKECATALOG_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when EARTHQUAKE_CATALOG_TEST_LIVE=TRUE.
+  afterEach(liveDelay('EARTHQUAKE_CATALOG_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = EarthquakeCatalogSDK.test()
@@ -63,13 +63,13 @@ describe('EarthquakeDataEntity', async () => {
     const earthquake_data_ref01_ent = client.EarthquakeData()
     const earthquake_data_ref01_match: any = {}
 
-    const earthquake_data_ref01_list = await earthquake_data_ref01_ent.list(earthquake_data_ref01_match)
+    const earthquake_data_ref01_list = (await earthquake_data_ref01_ent.list(earthquake_data_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const earthquake_data_ref01_match_dt0: any = {}
     earthquake_data_ref01_match_dt0.id = earthquake_data_ref01_data.id
-    const earthquake_data_ref01_data_dt0 = await earthquake_data_ref01_ent.load(earthquake_data_ref01_match_dt0)
+    const earthquake_data_ref01_data_dt0 = (await earthquake_data_ref01_ent.load(earthquake_data_ref01_match_dt0)).data()
     assert(earthquake_data_ref01_data_dt0.id === earthquake_data_ref01_data.id)
 
 

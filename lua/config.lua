@@ -48,14 +48,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "max_allowed",
+            ["name"] = "maxAllowed",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 3,
           },
           {
             ["active"] = true,
-            ["name"] = "property",
+            ["name"] = "properties",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 4,
@@ -474,6 +474,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/query",
                 ["parts"] = {
@@ -734,6 +735,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/count",
                 ["parts"] = {
@@ -790,6 +792,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/catalogs",
                 ["parts"] = {
@@ -805,6 +808,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/contributors",
                 ["parts"] = {
@@ -827,6 +831,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/application.json",
                 ["parts"] = {
@@ -842,6 +847,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/application.wadl",
                 ["parts"] = {
@@ -857,6 +863,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/version",
                 ["parts"] = {

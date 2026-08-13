@@ -111,11 +111,11 @@ function earthquake_data_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "EARTHQUAKECATALOG_TEST_EARTHQUAKE_DATA_ENTID" => [],
-        "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
+        "EARTHQUAKE_CATALOG_TEST_EARTHQUAKE_DATA_ENTID" => [],
+        "EARTHQUAKE_CATALOG_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["EARTHQUAKECATALOG_TEST_LIVE"] === "TRUE";
+    $live = $env["EARTHQUAKE_CATALOG_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

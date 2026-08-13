@@ -43,8 +43,8 @@ class EarthquakeCatalogTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('EARTHQUAKECATALOG_TEST_LIVE');
-        $override = self::getenv('EARTHQUAKECATALOG_TEST_OVERRIDE');
+        $live = self::getenv('EARTHQUAKE_CATALOG_TEST_LIVE');
+        $override = self::getenv('EARTHQUAKE_CATALOG_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class EarthquakeCatalogTestRunner
             }
         }
 
-        $explain = self::getenv('EARTHQUAKECATALOG_TEST_EXPLAIN');
+        $explain = self::getenv('EARTHQUAKE_CATALOG_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['EARTHQUAKECATALOG_TEST_EXPLAIN'] = $explain;
+            $m['EARTHQUAKE_CATALOG_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

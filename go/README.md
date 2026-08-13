@@ -273,8 +273,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"count"` |  |
 | `"geometry"` |  |
 | `"id"` |  |
-| `"max_allowed"` |  |
-| `"property"` |  |
+| `"maxAllowed"` |  |
+| `"properties"` |  |
 | `"type"` |  |
 
 Operations: List, Load.
@@ -313,8 +313,8 @@ Create an instance: `earthquakeData := client.EarthquakeData(nil)`
 | `count` | `int` |  |
 | `geometry` | `map[string]any` |  |
 | `id` | `string` |  |
-| `max_allowed` | `int` |  |
-| `property` | `map[string]any` |  |
+| `maxAllowed` | `int` |  |
+| `properties` | `map[string]any` |  |
 | `type` | `string` |  |
 
 #### Example: Load

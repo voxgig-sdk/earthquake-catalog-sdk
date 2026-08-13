@@ -100,8 +100,8 @@ earthquake_data = client.EarthquakeData
 | `count` | `Integer` | No |  |
 | `geometry` | `Hash` | No |  |
 | `id` | `String` | No |  |
-| `max_allowed` | `Integer` | No |  |
-| `property` | `Hash` | No |  |
+| `maxAllowed` | `Integer` | No |  |
+| `properties` | `Hash` | No |  |
 | `type` | `String` | No |  |
 
 ### Operations

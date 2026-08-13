@@ -5,24 +5,24 @@
         "count": "s3c",
         "geometry": {},
         "id": "EARTHQUAKE_DATA00",
-        "max_allowed": "s3f",
-        "property": {},
+        "maxAllowed": "s3f",
+        "properties": {},
         "type": "s41"
       },
       "EARTHQUAKE_DATA01": {
         "count": "s78",
         "geometry": {},
         "id": "EARTHQUAKE_DATA01",
-        "max_allowed": "s7b",
-        "property": {},
+        "maxAllowed": "s7b",
+        "properties": {},
         "type": "s7d"
       },
       "EARTHQUAKE_DATA02": {
         "count": "sb4",
         "geometry": {},
         "id": "EARTHQUAKE_DATA02",
-        "max_allowed": "sb7",
-        "property": {},
+        "maxAllowed": "sb7",
+        "properties": {},
         "type": "sb9"
       }
     }
@@ -32,8 +32,8 @@
       "earthquake_data_ref01": {
         "count": "sf0",
         "geometry": {},
-        "max_allowed": "sf3",
-        "property": {},
+        "maxAllowed": "sf3",
+        "properties": {},
         "type": "sf5"
       }
     }

@@ -35,8 +35,8 @@ end
 
 
 function runner.env_override(m)
-  local live = runner.getenv("EARTHQUAKECATALOG_TEST_LIVE")
-  local override = runner.getenv("EARTHQUAKECATALOG_TEST_OVERRIDE")
+  local live = runner.getenv("EARTHQUAKE_CATALOG_TEST_LIVE")
+  local override = runner.getenv("EARTHQUAKE_CATALOG_TEST_OVERRIDE")
 
   if live == "TRUE" or override == "TRUE" then
     for key, _ in pairs(m) do
@@ -56,9 +56,9 @@ function runner.env_override(m)
     end
   end
 
-  local explain = runner.getenv("EARTHQUAKECATALOG_TEST_EXPLAIN")
+  local explain = runner.getenv("EARTHQUAKE_CATALOG_TEST_EXPLAIN")
   if explain ~= nil and explain ~= "" then
-    m["EARTHQUAKECATALOG_TEST_EXPLAIN"] = explain
+    m["EARTHQUAKE_CATALOG_TEST_EXPLAIN"] = explain
   end
 
   return m

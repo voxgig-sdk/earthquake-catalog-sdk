@@ -131,8 +131,8 @@ const earthquake_data = client.EarthquakeData()
 | `count` | `number` | No |  |
 | `geometry` | `Record<string, any>` | No |  |
 | `id` | `string` | No |  |
-| `max_allowed` | `number` | No |  |
-| `property` | `Record<string, any>` | No |  |
+| `maxAllowed` | `number` | No |  |
+| `properties` | `Record<string, any>` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

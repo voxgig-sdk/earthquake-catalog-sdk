@@ -18,8 +18,8 @@ class EarthquakeData
     public ?int $count = null;
     public ?array $geometry = null;
     public ?string $id = null;
-    public ?int $max_allowed = null;
-    public ?array $property = null;
+    public ?int $maxAllowed = null;
+    public ?array $properties = null;
     public ?string $type = null;
 }
 
@@ -29,8 +29,8 @@ class EarthquakeDataLoadMatch
     public ?int $count = null;
     public ?array $geometry = null;
     public string $id;
-    public ?int $max_allowed = null;
-    public ?array $property = null;
+    public ?int $maxAllowed = null;
+    public ?array $properties = null;
     public ?string $type = null;
 }
 
@@ -40,8 +40,8 @@ class EarthquakeDataListMatch
     public ?int $count = null;
     public ?array $geometry = null;
     public ?string $id = null;
-    public ?int $max_allowed = null;
-    public ?array $property = null;
+    public ?int $maxAllowed = null;
+    public ?array $properties = null;
     public ?string $type = null;
 }
 

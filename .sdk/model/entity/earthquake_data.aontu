@@ -21,12 +21,12 @@ main: kit: entity: earthquake_data: {
       type: "`$STRING`"
     }
     {
-      name: "max_allowed"
+      name: "maxAllowed"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "property"
+      name: "properties"
       req: false
       type: "`$OBJECT`"
     }

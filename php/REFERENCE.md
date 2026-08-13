@@ -99,8 +99,8 @@ $earthquake_data = $client->EarthquakeData();
 | `count` | `int` | No |  |
 | `geometry` | `array` | No |  |
 | `id` | `string` | No |  |
-| `max_allowed` | `int` | No |  |
-| `property` | `array` | No |  |
+| `maxAllowed` | `int` | No |  |
+| `properties` | `array` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

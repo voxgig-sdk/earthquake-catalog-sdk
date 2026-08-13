@@ -37,7 +37,7 @@ class ServiceInformationEntity extends EarthquakeCatalogEntityBase<ServiceInform
 
 
 
-  async load(this: any, reqmatch?: ServiceInformationLoadMatch, ctrl?: Control): Promise<ServiceInformation> {
+  async load(this: any, reqmatch?: ServiceInformationLoadMatch, ctrl?: Control): Promise<ServiceInformationEntity> {
 
     const utility = this._utility
 
@@ -128,7 +128,15 @@ class ServiceInformationEntity extends EarthquakeCatalogEntityBase<ServiceInform
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 
@@ -150,7 +158,7 @@ class ServiceInformationEntity extends EarthquakeCatalogEntityBase<ServiceInform
 
 
 
-  async list(this: any, reqmatch?: ServiceInformationListMatch, ctrl?: Control): Promise<ServiceInformation[]> {
+  async list(this: any, reqmatch?: ServiceInformationListMatch, ctrl?: Control): Promise<ServiceInformationEntity[]> {
 
     const utility = this._utility
 

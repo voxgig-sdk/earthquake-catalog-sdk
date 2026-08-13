@@ -49,14 +49,14 @@ module EarthquakeCatalogConfig
             },
             {
               "active" => true,
-              "name" => "max_allowed",
+              "name" => "maxAllowed",
               "req" => false,
               "type" => "`$INTEGER`",
               "index$" => 3,
             },
             {
               "active" => true,
-              "name" => "property",
+              "name" => "properties",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 4,
@@ -475,6 +475,7 @@ module EarthquakeCatalogConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/query",
                   "parts" => [
@@ -735,6 +736,7 @@ module EarthquakeCatalogConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/count",
                   "parts" => [
@@ -791,6 +793,7 @@ module EarthquakeCatalogConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalogs",
                   "parts" => [
@@ -806,6 +809,7 @@ module EarthquakeCatalogConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/contributors",
                   "parts" => [
@@ -828,6 +832,7 @@ module EarthquakeCatalogConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/application.json",
                   "parts" => [
@@ -843,6 +848,7 @@ module EarthquakeCatalogConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/application.wadl",
                   "parts" => [
@@ -858,6 +864,7 @@ module EarthquakeCatalogConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/version",
                   "parts" => [

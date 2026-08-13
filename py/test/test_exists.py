@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# EarthquakeCatalog SDK exists test
 
 import pytest
 from earthquakecatalog_sdk import EarthquakeCatalogSDK

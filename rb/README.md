@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare EarthquakeData record (raises on error).
+  # load returns the ENTITY — call data_get for the EarthquakeData record (raises on error).
   earthquakedata = client.EarthquakeData.load({ "id" => "example_id" })
   puts earthquakedata
 rescue => err
@@ -134,7 +134,8 @@ client = EarthquakeCatalogSDK.test({
   "entity" => { "earthquakedata" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 earthquakedata = client.EarthquakeData.list()
 puts earthquakedata
 ```
@@ -256,8 +257,8 @@ returns a result `Hash` with these keys:
 | `count` |  |
 | `geometry` |  |
 | `id` |  |
-| `max_allowed` |  |
-| `property` |  |
+| `maxAllowed` |  |
+| `properties` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -296,14 +297,14 @@ Create an instance: `earthquake_data = client.EarthquakeData`
 | `count` | `Integer` |  |
 | `geometry` | `Hash` |  |
 | `id` | `String` |  |
-| `max_allowed` | `Integer` |  |
-| `property` | `Hash` |  |
+| `maxAllowed` | `Integer` |  |
+| `properties` | `Hash` |  |
 | `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare EarthquakeData record (raises on error).
+# load returns the ENTITY — call data_get for the EarthquakeData record (raises on error).
 earthquake_data = client.EarthquakeData.load({ "id" => "earthquake_data_id" })
 ```
 
@@ -329,7 +330,7 @@ Create an instance: `service_information = client.ServiceInformation`
 #### Example: Load
 
 ```ruby
-# load returns the bare ServiceInformation record (raises on error).
+# load returns the ENTITY — call data_get for the ServiceInformation record (raises on error).
 service_information = client.ServiceInformation.load()
 ```
 

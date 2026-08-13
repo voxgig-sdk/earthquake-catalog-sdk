@@ -245,8 +245,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `count` |  |
 | `geometry` |  |
 | `id` |  |
-| `max_allowed` |  |
-| `property` |  |
+| `maxAllowed` |  |
+| `properties` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -285,8 +285,8 @@ Create an instance: `local earthquake_data = client:EarthquakeData(nil)`
 | `count` | `number` |  |
 | `geometry` | `table` |  |
 | `id` | `string` |  |
-| `max_allowed` | `number` |  |
-| `property` | `table` |  |
+| `maxAllowed` | `number` |  |
+| `properties` | `table` |  |
 | `type` | `string` |  |
 
 #### Example: Load

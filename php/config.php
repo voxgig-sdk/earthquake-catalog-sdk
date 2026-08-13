@@ -54,14 +54,14 @@ class EarthquakeCatalogConfig
             ],
             [
               'active' => true,
-              'name' => 'max_allowed',
+              'name' => 'maxAllowed',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 3,
             ],
             [
               'active' => true,
-              'name' => 'property',
+              'name' => 'properties',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 4,
@@ -480,6 +480,7 @@ class EarthquakeCatalogConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/query',
                   'parts' => [
@@ -740,6 +741,7 @@ class EarthquakeCatalogConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/count',
                   'parts' => [
@@ -796,6 +798,7 @@ class EarthquakeCatalogConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/catalogs',
                   'parts' => [
@@ -811,6 +814,7 @@ class EarthquakeCatalogConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/contributors',
                   'parts' => [
@@ -833,6 +837,7 @@ class EarthquakeCatalogConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/application.json',
                   'parts' => [
@@ -848,6 +853,7 @@ class EarthquakeCatalogConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/application.wadl',
                   'parts' => [
@@ -863,6 +869,7 @@ class EarthquakeCatalogConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/version',
                   'parts' => [

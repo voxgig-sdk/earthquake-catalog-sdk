@@ -35,7 +35,9 @@ const client = new EarthquakeCatalogSDK()
 
 ### 2. List earthquakedata records
 
-`list()` resolves to an array of EarthquakeData objects — iterate it directly:
+`list()` resolves to an array of EarthquakeData ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const earthquakedatas = await client.EarthquakeData().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = EarthquakeCatalogSDK.test()
 
 const earthquakedata = await client.EarthquakeData().list()
-// earthquakedata is a bare entity populated with mock response data
+// earthquakedata is the entity, populated with mock response data
+// — call earthquakedata.data() for the record itself
 console.log(earthquakedata)
 ```
 
@@ -303,8 +306,8 @@ The `prepare()` method returns:
 | `count` |  |
 | `geometry` |  |
 | `id` |  |
-| `max_allowed` |  |
-| `property` |  |
+| `maxAllowed` |  |
+| `properties` |  |
 | `type` |  |
 
 Operations: list, load.
@@ -343,8 +346,8 @@ Create an instance: `const earthquake_data = client.EarthquakeData()`
 | `count` | `number` |  |
 | `geometry` | `Record<string, any>` |  |
 | `id` | `string` |  |
-| `max_allowed` | `number` |  |
-| `property` | `Record<string, any>` |  |
+| `maxAllowed` | `number` |  |
+| `properties` | `Record<string, any>` |  |
 | `type` | `string` |  |
 
 #### Example: Load

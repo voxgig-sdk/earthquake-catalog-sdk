@@ -9,8 +9,8 @@ export interface EarthquakeData {
   count?: number
   geometry?: Record<string, any>
   id?: string
-  max_allowed?: number
-  property?: Record<string, any>
+  maxAllowed?: number
+  properties?: Record<string, any>
   type?: string
 }
 
@@ -18,8 +18,8 @@ export interface EarthquakeDataLoadMatch {
   count?: number
   geometry?: Record<string, any>
   id: string
-  max_allowed?: number
-  property?: Record<string, any>
+  maxAllowed?: number
+  properties?: Record<string, any>
   type?: string
 }
 
@@ -27,8 +27,8 @@ export interface EarthquakeDataListMatch {
   count?: number
   geometry?: Record<string, any>
   id?: string
-  max_allowed?: number
-  property?: Record<string, any>
+  maxAllowed?: number
+  properties?: Record<string, any>
   type?: string
 }
 

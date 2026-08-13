@@ -19,11 +19,15 @@ import {
 describe('ServiceInformationDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when EARTHQUAKECATALOG_TEST_LIVE=TRUE.
-  afterEach(liveDelay('EARTHQUAKECATALOG_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when EARTHQUAKE_CATALOG_TEST_LIVE=TRUE.
+  afterEach(liveDelay('EARTHQUAKE_CATALOG_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new EarthquakeCatalogSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -133,17 +137,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID': {},
-    'EARTHQUAKECATALOG_TEST_LIVE': 'FALSE',
+    'EARTHQUAKE_CATALOG_TEST_SERVICE_INFORMATION_ENTID': {},
+    'EARTHQUAKE_CATALOG_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.EARTHQUAKECATALOG_TEST_LIVE
+  const live = 'TRUE' === env.EARTHQUAKE_CATALOG_TEST_LIVE
 
   if (live) {
     const client = new EarthquakeCatalogSDK({
     })
 
-    let idmap: any = env['EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID']
+    let idmap: any = env['EARTHQUAKE_CATALOG_TEST_SERVICE_INFORMATION_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare EarthquakeData record (throws on error).
+    // load() returns the ENTITY — call data_get() for the EarthquakeData record (throws on error).
     $earthquakedata = $client->EarthquakeData()->load(["id" => "example_id"]);
     print_r($earthquakedata);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = EarthquakeCatalogSDK::test([
     "entity" => ["earthquakedata" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $earthquakedata = $client->EarthquakeData()->list();
 print_r($earthquakedata);
 ```
@@ -241,7 +242,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -266,8 +267,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `count` |  |
 | `geometry` |  |
 | `id` |  |
-| `max_allowed` |  |
-| `property` |  |
+| `maxAllowed` |  |
+| `properties` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -306,14 +307,14 @@ Create an instance: `$earthquake_data = $client->EarthquakeData();`
 | `count` | `int` |  |
 | `geometry` | `array` |  |
 | `id` | `string` |  |
-| `max_allowed` | `int` |  |
-| `property` | `array` |  |
+| `maxAllowed` | `int` |  |
+| `properties` | `array` |  |
 | `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare EarthquakeData record (throws on error).
+// load() returns the ENTITY — call data_get() for the EarthquakeData record (throws on error).
 $earthquake_data = $client->EarthquakeData()->load(["id" => "earthquake_data_id"]);
 ```
 
@@ -339,7 +340,7 @@ Create an instance: `$service_information = $client->ServiceInformation();`
 #### Example: Load
 
 ```php
-// load() returns the bare ServiceInformation record (throws on error).
+// load() returns the ENTITY — call data_get() for the ServiceInformation record (throws on error).
 $service_information = $client->ServiceInformation()->load();
 ```
 

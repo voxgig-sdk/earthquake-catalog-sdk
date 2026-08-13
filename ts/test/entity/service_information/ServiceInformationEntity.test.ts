@@ -26,8 +26,8 @@ import {
 describe('ServiceInformationEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when EARTHQUAKECATALOG_TEST_LIVE=TRUE.
-  afterEach(liveDelay('EARTHQUAKECATALOG_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when EARTHQUAKE_CATALOG_TEST_LIVE=TRUE.
+  afterEach(liveDelay('EARTHQUAKE_CATALOG_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = EarthquakeCatalogSDK.test()
@@ -63,12 +63,12 @@ describe('ServiceInformationEntity', async () => {
     const service_information_ref01_ent = client.ServiceInformation()
     const service_information_ref01_match: any = {}
 
-    const service_information_ref01_list = await service_information_ref01_ent.list(service_information_ref01_match)
+    const service_information_ref01_list = (await service_information_ref01_ent.list(service_information_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const service_information_ref01_match_dt0: any = {}
-    const service_information_ref01_data_dt0 = await service_information_ref01_ent.load(service_information_ref01_match_dt0)
+    const service_information_ref01_data_dt0 = (await service_information_ref01_ent.load(service_information_ref01_match_dt0)).data()
     assert(null != service_information_ref01_data_dt0)
 
 

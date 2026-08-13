@@ -104,11 +104,11 @@ def service_information_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "EARTHQUAKECATALOG_TEST_SERVICE_INFORMATION_ENTID" => {},
-    "EARTHQUAKECATALOG_TEST_LIVE" => "FALSE",
+    "EARTHQUAKE_CATALOG_TEST_SERVICE_INFORMATION_ENTID" => {},
+    "EARTHQUAKE_CATALOG_TEST_LIVE" => "FALSE",
   })
 
-  live = env["EARTHQUAKECATALOG_TEST_LIVE"] == "TRUE"
+  live = env["EARTHQUAKE_CATALOG_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

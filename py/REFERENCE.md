@@ -94,8 +94,8 @@ earthquake_data = client.EarthquakeData()
 | `count` | `int` | No |  |
 | `geometry` | `dict` | No |  |
 | `id` | `str` | No |  |
-| `max_allowed` | `int` | No |  |
-| `property` | `dict` | No |  |
+| `maxAllowed` | `int` | No |  |
+| `properties` | `dict` | No |  |
 | `type` | `str` | No |  |
 
 ### Operations

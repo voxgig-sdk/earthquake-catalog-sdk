@@ -105,8 +105,8 @@ fmt.Println(earthquakeData.GetName()) // "earthquake_data"
 | `count` | `int` | No |  |
 | `geometry` | `map[string]any` | No |  |
 | `id` | `string` | No |  |
-| `max_allowed` | `int` | No |  |
-| `property` | `map[string]any` | No |  |
+| `maxAllowed` | `int` | No |  |
+| `properties` | `map[string]any` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

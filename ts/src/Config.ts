@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'EarthquakeCatalog',
   }
 
 
@@ -80,14 +80,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "max_allowed",
+          "name": "maxAllowed",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "property",
+          "name": "properties",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 4
@@ -506,6 +506,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/query",
               "parts": [
@@ -766,6 +767,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/count",
               "parts": [
@@ -822,6 +824,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/catalogs",
               "parts": [
@@ -837,6 +840,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/contributors",
               "parts": [
@@ -859,6 +863,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/application.json",
               "parts": [
@@ -874,6 +879,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/application.wadl",
               "parts": [
@@ -889,6 +895,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/version",
               "parts": [

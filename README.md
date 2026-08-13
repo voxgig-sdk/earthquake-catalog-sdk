@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = EarthquakeCatalogSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = EarthquakeCatalogSDK.test({
+  entity: {
+    earthquake_data: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const earthquakedatas = await client.EarthquakeData().list()
-// earthquakedatas is an array of bare EarthquakeData records populated with mock data
+// earthquakedatas is an array of EarthquakeData entities, populated with mock data
+// — call earthquakedatas[0].data() for the record itself
 console.log(earthquakedatas)
 ```
 
@@ -110,7 +119,7 @@ import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog'
 
 const client = new EarthquakeCatalogSDK()
 
-// List all earthquakedatas (returns EarthquakeData[])
+// List all earthquakedatas (returns EarthquakeDataEntity[] — .data() for the record)
 const earthquakedatas = await client.EarthquakeData().list()
 for (const earthquakedata of earthquakedatas) {
   console.log(earthquakedata)
@@ -192,7 +201,7 @@ $client = new EarthquakeCatalogSDK();
 $earthquakedatas = $client->EarthquakeData()->list();
 print_r($earthquakedatas);
 
-// Load a specific earthquakedata (returns the bare record; throws on error)
+// Load a specific earthquakedata (returns the ENTITY; call data_get() for the record; throws on error)
 $earthquakedata = $client->EarthquakeData()->load(["id" => "example_id"]);
 print_r($earthquakedata);
 ```
@@ -223,7 +232,7 @@ client = EarthquakeCatalogSDK.new
 earthquakedatas = client.EarthquakeData.list
 puts earthquakedatas
 
-# Load a specific earthquakedata (returns the bare record; raises on error)
+# Load a specific earthquakedata (returns the ENTITY; call data_get for the record)
 earthquakedata = client.EarthquakeData.load({ "id" => "example_id" })
 puts earthquakedata
 ```
@@ -360,6 +369,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://earthquake.usgs.gov](https://earthquake.usgs.gov)
 
