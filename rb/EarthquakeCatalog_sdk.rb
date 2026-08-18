@@ -28,7 +28,7 @@ class EarthquakeCatalogSDK
     utility = EarthquakeCatalogUtility.new
     @_utility = utility
 
-    config = EarthquakeCatalogConfig.make_config
+    config = EarthquakeCatalogConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

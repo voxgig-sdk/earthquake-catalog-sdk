@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://earthquake.usgs.gov/fdsnws/event/1',
+    base: "https://earthquake.usgs.gov/fdsnws/event/1",
 
     headers: {
       "content-type": "application/json"
@@ -58,46 +58,28 @@ class Config {
     "earthquake_data": {
       "fields": [
         {
-          "active": true,
           "name": "count",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 0
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "geometry",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 1
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "maxAllowed",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 3
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "properties",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 4
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "type",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         }
       ],
       "name": "earthquake_data",
@@ -107,401 +89,308 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alertlevel",
                     "orig": "alertlevel",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "callback",
                     "orig": "callback",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "catalog",
                     "orig": "catalog",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "contributor",
                     "orig": "contributor",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "2014-01-02",
                     "kind": "query",
                     "name": "endtime",
                     "orig": "endtime",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "eventid",
                     "orig": "eventid",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "earthquake",
                     "kind": "query",
                     "name": "eventtype",
                     "orig": "eventtype",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "quakeml",
                     "kind": "query",
                     "name": "format",
                     "orig": "format",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "includeallmagnitude",
                     "orig": "includeallmagnitude",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "includeallorigin",
                     "orig": "includeallorigin",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "includearrival",
                     "orig": "includearrival",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": "false",
                     "kind": "query",
                     "name": "includedeleted",
                     "orig": "includedeleted",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "includesuperseded",
                     "orig": "includesuperseded",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "jsonerror",
                     "orig": "jsonerror",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "kmlanimated",
                     "orig": "kmlanimated",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": "age",
                     "kind": "query",
                     "name": "kmlcolorby",
                     "orig": "kmlcolorby",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "latitude",
                     "orig": "latitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "longitude",
                     "orig": "longitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "magnitudetype",
                     "orig": "magnitudetype",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "maxcdi",
                     "orig": "maxcdi",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 1000,
                     "kind": "query",
                     "name": "maxdepth",
                     "orig": "maxdepth",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "maxgap",
                     "orig": "maxgap",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 90,
                     "kind": "query",
                     "name": "maxlatitude",
                     "orig": "maxlatitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 180,
                     "kind": "query",
                     "name": "maxlongitude",
                     "orig": "maxlongitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "maxmagnitude",
                     "orig": "maxmagnitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "maxmmi",
                     "orig": "maxmmi",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 180,
                     "kind": "query",
                     "name": "maxradius",
                     "orig": "maxradius",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 20001.6,
                     "kind": "query",
                     "name": "maxradiuskm",
                     "orig": "maxradiuskm",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "maxsig",
                     "orig": "maxsig",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "mincdi",
                     "orig": "mincdi",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -100,
                     "kind": "query",
                     "name": "mindepth",
                     "orig": "mindepth",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "minfelt",
                     "orig": "minfelt",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "mingap",
                     "orig": "mingap",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -90,
                     "kind": "query",
                     "name": "minlatitude",
                     "orig": "minlatitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -180,
                     "kind": "query",
                     "name": "minlongitude",
                     "orig": "minlongitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 5,
                     "kind": "query",
                     "name": "minmagnitude",
                     "orig": "minmagnitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "minsig",
                     "orig": "minsig",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 204,
                     "kind": "query",
                     "name": "nodata",
                     "orig": "nodata",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "offset",
                     "orig": "offset",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": "time",
                     "kind": "query",
                     "name": "orderby",
                     "orig": "orderby",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "productcode",
                     "orig": "productcode",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "moment-tensor",
                     "kind": "query",
                     "name": "producttype",
                     "orig": "producttype",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "all",
                     "kind": "query",
                     "name": "reviewstatus",
                     "orig": "reviewstatus",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "2014-01-01",
                     "kind": "query",
                     "name": "starttime",
                     "orig": "starttime",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "updatedafter",
                     "orig": "updatedafter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -565,204 +454,157 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         },
         "load": {
           "input": "data",
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alertlevel",
                     "orig": "alertlevel",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "catalog",
                     "orig": "catalog",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "contributor",
                     "orig": "contributor",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "endtime",
                     "orig": "endtime",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "eventtype",
                     "orig": "eventtype",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "text",
                     "kind": "query",
                     "name": "format",
                     "orig": "format",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "latitude",
                     "orig": "latitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "longitude",
                     "orig": "longitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "magnitudetype",
                     "orig": "magnitudetype",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 1000,
                     "kind": "query",
                     "name": "maxdepth",
                     "orig": "maxdepth",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 90,
                     "kind": "query",
                     "name": "maxlatitude",
                     "orig": "maxlatitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 180,
                     "kind": "query",
                     "name": "maxlongitude",
                     "orig": "maxlongitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "maxmagnitude",
                     "orig": "maxmagnitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 180,
                     "kind": "query",
                     "name": "maxradius",
                     "orig": "maxradius",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": 20001.6,
                     "kind": "query",
                     "name": "maxradiuskm",
                     "orig": "maxradiuskm",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -100,
                     "kind": "query",
                     "name": "mindepth",
                     "orig": "mindepth",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -90,
                     "kind": "query",
                     "name": "minlatitude",
                     "orig": "minlatitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -180,
                     "kind": "query",
                     "name": "minlongitude",
                     "orig": "minlongitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "minmagnitude",
                     "orig": "minmagnitude",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": "all",
                     "kind": "query",
                     "name": "reviewstatus",
                     "orig": "reviewstatus",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "starttime",
                     "orig": "starttime",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "updatedafter",
                     "orig": "updatedafter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -802,11 +644,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -822,7 +662,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -834,11 +673,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -850,18 +687,15 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             }
-          ],
-          "key$": "list"
+          ]
         },
         "load": {
           "input": "data",
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -873,11 +707,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -889,11 +721,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             },
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -905,11 +735,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 2
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

@@ -40,7 +40,7 @@ class EarthquakeCatalogSDK
         $utility = new EarthquakeCatalogUtility();
         $this->_utility = $utility;
 
-        $config = EarthquakeCatalogConfig::make_config();
+        $config = EarthquakeCatalogConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
