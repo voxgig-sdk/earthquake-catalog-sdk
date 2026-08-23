@@ -19,6 +19,9 @@ module EarthquakeCatalogConfig
     {
       "main" => {
         "name" => "EarthquakeCatalog",
+        "slug" => "earthquake-catalog",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {

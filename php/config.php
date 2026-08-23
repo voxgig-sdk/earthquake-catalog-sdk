@@ -33,6 +33,9 @@ class EarthquakeCatalogConfig
         return [
             "main" => [
                 "name" => "EarthquakeCatalog",
+                "slug" => "earthquake-catalog",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
