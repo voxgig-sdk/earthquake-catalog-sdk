@@ -28,6 +28,7 @@ module EarthquakeCatalogConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
