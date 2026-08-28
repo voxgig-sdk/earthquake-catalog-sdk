@@ -50,7 +50,7 @@ end
 ### 3. Load an earthquakedata
 
 ```lua
-local earthquakedata, err = client:EarthquakeData():load({ id = "example_id" })
+local earthquakedata, err = client:EarthquakeData():load()
 if err then error(err) end
 print(earthquakedata)
 ```
@@ -229,7 +229,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local earthquake_data, err = client:EarthquakeData():load({ id = "example_id" })
+    local earthquake_data, err = client:EarthquakeData():load()
     if err then error(err) end
     -- earthquake_data is the loaded record
 
@@ -292,7 +292,7 @@ Create an instance: `local earthquake_data = client:EarthquakeData(nil)`
 #### Example: Load
 
 ```lua
-local earthquake_data, err = client:EarthquakeData():load({ id = "earthquake_data_id" })
+local earthquake_data, err = client:EarthquakeData():load()
 ```
 
 #### Example: List
@@ -324,6 +324,29 @@ local service_information, err = client:ServiceInformation():load()
 ```lua
 local service_informations, err = client:ServiceInformation():list()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

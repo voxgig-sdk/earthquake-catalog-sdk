@@ -25,25 +25,78 @@ class EarthquakeData(TypedDict, total=False):
     type: str
 
 
-class EarthquakeDataLoadMatchRequired(TypedDict):
-    id: str
-
-
-class EarthquakeDataLoadMatch(EarthquakeDataLoadMatchRequired, total=False):
-    count: int
-    geometry: dict
-    maxAllowed: int
-    properties: dict
-    type: str
+class EarthquakeDataLoadMatch(TypedDict, total=False):
+    alertlevel: str
+    catalog: str
+    contributor: str
+    endtime: str
+    eventtype: str
+    format: str
+    latitude: float
+    longitude: float
+    magnitudetype: str
+    maxdepth: float
+    maxlatitude: float
+    maxlongitude: float
+    maxmagnitude: float
+    maxradius: float
+    maxradiuskm: float
+    mindepth: float
+    minlatitude: float
+    minlongitude: float
+    minmagnitude: float
+    reviewstatus: str
+    starttime: str
+    updatedafter: str
 
 
 class EarthquakeDataListMatch(TypedDict, total=False):
-    count: int
-    geometry: dict
-    id: str
-    maxAllowed: int
-    properties: dict
-    type: str
+    alertlevel: str
+    callback: str
+    catalog: str
+    contributor: str
+    endtime: str
+    eventid: str
+    eventtype: str
+    format: str
+    includeallmagnitude: bool
+    includeallorigin: bool
+    includearrival: bool
+    includedeleted: str
+    includesuperseded: bool
+    jsonerror: bool
+    kmlanimated: bool
+    kmlcolorby: str
+    latitude: float
+    limit: int
+    longitude: float
+    magnitudetype: str
+    maxcdi: float
+    maxdepth: float
+    maxgap: float
+    maxlatitude: float
+    maxlongitude: float
+    maxmagnitude: float
+    maxmmi: float
+    maxradius: float
+    maxradiuskm: float
+    maxsig: int
+    mincdi: float
+    mindepth: float
+    minfelt: int
+    mingap: float
+    minlatitude: float
+    minlongitude: float
+    minmagnitude: float
+    minsig: int
+    nodata: int
+    offset: int
+    orderby: str
+    productcode: str
+    producttype: str
+    reviewstatus: str
+    starttime: str
+    updatedafter: str
 
 
 class ServiceInformation(TypedDict):

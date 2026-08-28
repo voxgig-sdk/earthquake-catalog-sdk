@@ -50,7 +50,7 @@ try {
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the EarthquakeData record (throws on error).
-    $earthquakedata = $client->EarthquakeData()->load(["id" => "example_id"]);
+    $earthquakedata = $client->EarthquakeData()->load();
     print_r($earthquakedata);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -132,13 +132,10 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = EarthquakeCatalogSDK::test([
-    "entity" => ["earthquakedata" => ["test01" => ["id" => "test01"]]],
-]);
+$client = EarthquakeCatalogSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
@@ -315,7 +312,7 @@ Create an instance: `$earthquake_data = $client->EarthquakeData();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the EarthquakeData record (throws on error).
-$earthquake_data = $client->EarthquakeData()->load(["id" => "earthquake_data_id"]);
+$earthquake_data = $client->EarthquakeData()->load();
 ```
 
 #### Example: List
@@ -350,6 +347,29 @@ $service_information = $client->ServiceInformation()->load();
 // list() returns an array of ServiceInformation records (throws on error).
 $service_informations = $client->ServiceInformation()->list();
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
