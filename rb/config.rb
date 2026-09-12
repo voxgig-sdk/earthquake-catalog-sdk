@@ -69,6 +69,10 @@ module EarthquakeCatalogConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "earthquake_data",
           "op" => {
             "list" => {
@@ -385,8 +389,10 @@ module EarthquakeCatalogConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/query",
-                  "parts" => [
-                    "query",
+                  "segments" => [
+                    {
+                      "lit" => "query",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -442,6 +448,9 @@ module EarthquakeCatalogConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "query",
+                  ],
                 },
               ],
             },
@@ -599,8 +608,10 @@ module EarthquakeCatalogConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/count",
-                  "parts" => [
-                    "count",
+                  "segments" => [
+                    {
+                      "lit" => "count",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -632,6 +643,9 @@ module EarthquakeCatalogConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "count",
+                  ],
                 },
               ],
             },
@@ -653,28 +667,38 @@ module EarthquakeCatalogConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalogs",
-                  "parts" => [
-                    "catalogs",
+                  "segments" => [
+                    {
+                      "lit" => "catalogs",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "catalogs",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/contributors",
-                  "parts" => [
-                    "contributors",
+                  "segments" => [
+                    {
+                      "lit" => "contributors",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "contributors",
+                  ],
                 },
               ],
             },
@@ -687,42 +711,57 @@ module EarthquakeCatalogConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/application.json",
-                  "parts" => [
-                    "application.json",
+                  "segments" => [
+                    {
+                      "lit" => "application.json",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "application.json",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/application.wadl",
-                  "parts" => [
-                    "application.wadl",
+                  "segments" => [
+                    {
+                      "lit" => "application.wadl",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "application.wadl",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/version",
-                  "parts" => [
-                    "version",
+                  "segments" => [
+                    {
+                      "lit" => "version",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "version",
+                  ],
                 },
               ],
             },

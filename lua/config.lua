@@ -57,6 +57,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "earthquake_data",
         ["op"] = {
           ["list"] = {
@@ -373,8 +377,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/query",
-                ["parts"] = {
-                  "query",
+                ["segments"] = {
+                  {
+                    ["lit"] = "query",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -429,6 +435,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "query",
                 },
               },
             },
@@ -587,8 +596,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/count",
-                ["parts"] = {
-                  "count",
+                ["segments"] = {
+                  {
+                    ["lit"] = "count",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -620,6 +631,9 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "count",
+                },
               },
             },
           },
@@ -641,13 +655,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/catalogs",
-                ["parts"] = {
-                  "catalogs",
+                ["segments"] = {
+                  {
+                    ["lit"] = "catalogs",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "catalogs",
                 },
               },
               {
@@ -655,13 +674,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/contributors",
-                ["parts"] = {
-                  "contributors",
+                ["segments"] = {
+                  {
+                    ["lit"] = "contributors",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "contributors",
                 },
               },
             },
@@ -675,13 +699,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/application.json",
-                ["parts"] = {
-                  "application.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "application.json",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "application.json",
                 },
               },
               {
@@ -689,13 +718,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/application.wadl",
-                ["parts"] = {
-                  "application.wadl",
+                ["segments"] = {
+                  {
+                    ["lit"] = "application.wadl",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "application.wadl",
                 },
               },
               {
@@ -703,13 +737,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/version",
-                ["parts"] = {
-                  "version",
+                ["segments"] = {
+                  {
+                    ["lit"] = "version",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "version",
                 },
               },
             },

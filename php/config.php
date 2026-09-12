@@ -83,6 +83,10 @@ class EarthquakeCatalogConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'earthquake_data',
           'op' => [
             'list' => [
@@ -399,8 +403,10 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/query',
-                  'parts' => [
-                    'query',
+                  'segments' => [
+                    [
+                      'lit' => 'query',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -455,6 +461,9 @@ class EarthquakeCatalogConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'query',
                   ],
                 ],
               ],
@@ -613,8 +622,10 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/count',
-                  'parts' => [
-                    'count',
+                  'segments' => [
+                    [
+                      'lit' => 'count',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -646,6 +657,9 @@ class EarthquakeCatalogConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'count',
+                  ],
                 ],
               ],
             ],
@@ -667,13 +681,18 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/catalogs',
-                  'parts' => [
-                    'catalogs',
+                  'segments' => [
+                    [
+                      'lit' => 'catalogs',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'catalogs',
                   ],
                 ],
                 [
@@ -681,13 +700,18 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/contributors',
-                  'parts' => [
-                    'contributors',
+                  'segments' => [
+                    [
+                      'lit' => 'contributors',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'contributors',
                   ],
                 ],
               ],
@@ -701,13 +725,18 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/application.json',
-                  'parts' => [
-                    'application.json',
+                  'segments' => [
+                    [
+                      'lit' => 'application.json',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'application.json',
                   ],
                 ],
                 [
@@ -715,13 +744,18 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/application.wadl',
-                  'parts' => [
-                    'application.wadl',
+                  'segments' => [
+                    [
+                      'lit' => 'application.wadl',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'application.wadl',
                   ],
                 ],
                 [
@@ -729,13 +763,18 @@ class EarthquakeCatalogConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/version',
-                  'parts' => [
-                    'version',
+                  'segments' => [
+                    [
+                      'lit' => 'version',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'version',
                   ],
                 ],
               ],
