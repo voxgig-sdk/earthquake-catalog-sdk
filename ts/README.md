@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog'
+import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog-sdk'
 
 const client = new EarthquakeCatalogSDK()
 ```
@@ -469,7 +469,7 @@ earthquake-catalog/
 Import the SDK from the package root:
 
 ```ts
-import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog'
+import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog-sdk'
 ```
 
 ### Entity state

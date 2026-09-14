@@ -105,7 +105,7 @@ local results, err = client:EarthquakeData():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
+| TypeScript | `@voxgig-sdk/earthquake-catalog-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
 | Python | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
 | PHP | `voxgig-sdk/earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/earthquake-catalog-sdk/go` | `go get github.com/voxgig-sdk/earthquake-catalog-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:EarthquakeData():list()
 ### TypeScript
 
 ```ts
-import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog'
+import { EarthquakeCatalogSDK } from '@voxgig-sdk/earthquake-catalog-sdk'
 
 const client = new EarthquakeCatalogSDK()
 
