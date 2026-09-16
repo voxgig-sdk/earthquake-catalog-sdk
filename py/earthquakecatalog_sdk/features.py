@@ -1,12 +1,18 @@
 # EarthquakeCatalog SDK feature factory
 
 from earthquakecatalog_sdk.feature.base_feature import EarthquakeCatalogBaseFeature
+from earthquakecatalog_sdk.feature.ratelimit_feature import EarthquakeCatalogRatelimitFeature
+from earthquakecatalog_sdk.feature.retry_feature import EarthquakeCatalogRetryFeature
 from earthquakecatalog_sdk.feature.test_feature import EarthquakeCatalogTestFeature
+from earthquakecatalog_sdk.feature.timeout_feature import EarthquakeCatalogTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: EarthquakeCatalogBaseFeature(),
+    "ratelimit": lambda: EarthquakeCatalogRatelimitFeature(),
+    "retry": lambda: EarthquakeCatalogRetryFeature(),
     "test": lambda: EarthquakeCatalogTestFeature(),
+    "timeout": lambda: EarthquakeCatalogTimeoutFeature(),
 }
 
 

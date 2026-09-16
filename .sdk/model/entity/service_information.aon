@@ -10,6 +10,12 @@ main: kit: entity: service_information: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /catalogs"
+            json: "{\"operationId\":\"getCatalogs\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"List of available catalogs\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/catalogs"
           segments: [
@@ -23,6 +29,12 @@ main: kit: entity: service_information: {
           }
         }
         {
+          contract: {
+            id: "GET /contributors"
+            json: "{\"operationId\":\"getContributors\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"List of available contributors\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/contributors"
           segments: [
@@ -41,6 +53,12 @@ main: kit: entity: service_information: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /application.json"
+            json: "{\"operationId\":\"getApplicationJson\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Enumerated parameter values\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/application.json"
           segments: [
@@ -54,6 +72,12 @@ main: kit: entity: service_information: {
           }
         }
         {
+          contract: {
+            id: "GET /application.wadl"
+            json: "{\"operationId\":\"getWadl\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"WADL document\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/application.wadl"
           segments: [
@@ -67,6 +91,12 @@ main: kit: entity: service_information: {
           }
         }
         {
+          contract: {
+            id: "GET /version"
+            json: "{\"operationId\":\"getVersion\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/plain\":{\"schema\":{\"example\":\"1.13.6\",\"type\":\"string\"}}},\"description\":\"Service version number\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/version"
           segments: [
