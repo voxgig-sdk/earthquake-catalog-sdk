@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      earthquake_data: {
-      },
-
-      service_information: {
-      },
-
+        earthquake_data: {
+        },
+  
+        service_information: {
+        },
+  
     }
   }
 

@@ -1,4 +1,4 @@
 # Entity Models
 
-@"earthquake_data.aon"
-@"service_information.aon"
+@"./earthquake_data.aon"
+@"./service_information.aon"

@@ -105,12 +105,12 @@ local results, err = client:EarthquakeData():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/earthquake-catalog-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
-| Python | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
-| PHP | `voxgig-sdk/earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
+| TypeScript | `@voxgig-sdk/earthquake-catalog-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/tags) |
+| Python | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/tags) |
+| PHP | `voxgig-sdk/earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/earthquake-catalog-sdk/go` | `go get github.com/voxgig-sdk/earthquake-catalog-sdk/go@latest` |
-| Ruby | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
-| Lua | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/releases) |
+| Ruby | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/tags) |
+| Lua | `voxgig-sdk-earthquake-catalog` | publish pending — [install from git tag](https://github.com/voxgig-sdk/earthquake-catalog-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/earthquake-catalog-sdk/go-cli` | `go install github.com/voxgig-sdk/earthquake-catalog-sdk/go-cli/cmd/earthquake-catalog@latest` |
 | Go MCP server | `github.com/voxgig-sdk/earthquake-catalog-sdk/go-mcp` | `go get github.com/voxgig-sdk/earthquake-catalog-sdk/go-mcp@latest` |
 
