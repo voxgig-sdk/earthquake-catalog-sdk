@@ -1,0 +1,40 @@
+# BasicServiceInformationFlow
+
+main: kit: flow: BasicServiceInformationFlow:
+{
+  entity: "service_information",
+  kind: "basic",
+  name: "BasicServiceInformationFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "service_information_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "service_information_ref01",
+        srcdatavar: "service_information_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-service_information_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicServiceInformationFlow"
+}

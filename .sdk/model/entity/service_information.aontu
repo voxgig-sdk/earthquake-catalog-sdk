@@ -1,0 +1,116 @@
+# Entity: service_information
+
+main: kit: entity: service_information: {
+
+  alias: field: {}
+
+  name: "service_information"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /catalogs"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/catalogs"
+          s: [
+            {
+              lit: "catalogs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /contributors"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/contributors"
+          s: [
+            {
+              lit: "contributors"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /application.json"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/application.json"
+          s: [
+            {
+              lit: "application.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /application.wadl"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/application.wadl"
+          s: [
+            {
+              lit: "application.wadl"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /version"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/version"
+          s: [
+            {
+              lit: "version"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

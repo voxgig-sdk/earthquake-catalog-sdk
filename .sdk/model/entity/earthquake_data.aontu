@@ -1,0 +1,699 @@
+# Entity: earthquake_data
+
+main: kit: entity: earthquake_data: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    geometry: {
+      h: "Geometry"
+      n: "geometry"
+      r: false
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    maxAllowed: {
+      h: "Max Allowed"
+      n: "maxAllowed"
+      r: false
+      t: "`$INTEGER`"
+    }
+    properties: {
+      h: "Properties"
+      n: "properties"
+      r: false
+      t: "`$OBJECT`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "earthquake_data"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /query"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "alertlevel"
+                or: "alertlevel"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "catalog"
+                or: "catalog"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "contributor"
+                or: "contributor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2014-01-02"
+                k: "query"
+                n: "endtime"
+                or: "endtime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "eventid"
+                or: "eventid"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "earthquake"
+                k: "query"
+                n: "eventtype"
+                or: "eventtype"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "quakeml"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "includeallmagnitude"
+                or: "includeallmagnitude"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "includeallorigin"
+                or: "includeallorigin"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "includearrival"
+                or: "includearrival"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "false"
+                k: "query"
+                n: "includedeleted"
+                or: "includedeleted"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "includesuperseded"
+                or: "includesuperseded"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "jsonerror"
+                or: "jsonerror"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "kmlanimated"
+                or: "kmlanimated"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "age"
+                k: "query"
+                n: "kmlcolorby"
+                or: "kmlcolorby"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "latitude"
+                or: "latitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "longitude"
+                or: "longitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "magnitudetype"
+                or: "magnitudetype"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "maxcdi"
+                or: "maxcdi"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 1000
+                k: "query"
+                n: "maxdepth"
+                or: "maxdepth"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "maxgap"
+                or: "maxgap"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 90
+                k: "query"
+                n: "maxlatitude"
+                or: "maxlatitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 180
+                k: "query"
+                n: "maxlongitude"
+                or: "maxlongitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "maxmagnitude"
+                or: "maxmagnitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "maxmmi"
+                or: "maxmmi"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 180
+                k: "query"
+                n: "maxradius"
+                or: "maxradius"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 20001.6
+                k: "query"
+                n: "maxradiuskm"
+                or: "maxradiuskm"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "maxsig"
+                or: "maxsig"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "mincdi"
+                or: "mincdi"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -100
+                k: "query"
+                n: "mindepth"
+                or: "mindepth"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "minfelt"
+                or: "minfelt"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "mingap"
+                or: "mingap"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -90
+                k: "query"
+                n: "minlatitude"
+                or: "minlatitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -180
+                k: "query"
+                n: "minlongitude"
+                or: "minlongitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 5
+                k: "query"
+                n: "minmagnitude"
+                or: "minmagnitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "minsig"
+                or: "minsig"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 204
+                k: "query"
+                n: "nodata"
+                or: "nodata"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "time"
+                k: "query"
+                n: "orderby"
+                or: "orderby"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "productcode"
+                or: "productcode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "moment-tensor"
+                k: "query"
+                n: "producttype"
+                or: "producttype"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "all"
+                k: "query"
+                n: "reviewstatus"
+                or: "reviewstatus"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2014-01-01"
+                k: "query"
+                n: "starttime"
+                or: "starttime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updatedafter"
+                or: "updatedafter"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/query"
+          q: {
+            exist: [
+              "alertlevel"
+              "callback"
+              "catalog"
+              "contributor"
+              "endtime"
+              "eventid"
+              "eventtype"
+              "format"
+              "includeallmagnitude"
+              "includeallorigin"
+              "includearrival"
+              "includedeleted"
+              "includesuperseded"
+              "jsonerror"
+              "kmlanimated"
+              "kmlcolorby"
+              "latitude"
+              "limit"
+              "longitude"
+              "magnitudetype"
+              "maxcdi"
+              "maxdepth"
+              "maxgap"
+              "maxlatitude"
+              "maxlongitude"
+              "maxmagnitude"
+              "maxmmi"
+              "maxradius"
+              "maxradiuskm"
+              "maxsig"
+              "mincdi"
+              "mindepth"
+              "minfelt"
+              "mingap"
+              "minlatitude"
+              "minlongitude"
+              "minmagnitude"
+              "minsig"
+              "nodata"
+              "offset"
+              "orderby"
+              "productcode"
+              "producttype"
+              "reviewstatus"
+              "starttime"
+              "updatedafter"
+            ]
+          }
+          s: [
+            {
+              lit: "query"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /count"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "alertlevel"
+                or: "alertlevel"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "catalog"
+                or: "catalog"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "contributor"
+                or: "contributor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "endtime"
+                or: "endtime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "eventtype"
+                or: "eventtype"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "text"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "latitude"
+                or: "latitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "longitude"
+                or: "longitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "magnitudetype"
+                or: "magnitudetype"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1000
+                k: "query"
+                n: "maxdepth"
+                or: "maxdepth"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 90
+                k: "query"
+                n: "maxlatitude"
+                or: "maxlatitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 180
+                k: "query"
+                n: "maxlongitude"
+                or: "maxlongitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "maxmagnitude"
+                or: "maxmagnitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 180
+                k: "query"
+                n: "maxradius"
+                or: "maxradius"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 20001.6
+                k: "query"
+                n: "maxradiuskm"
+                or: "maxradiuskm"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -100
+                k: "query"
+                n: "mindepth"
+                or: "mindepth"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -90
+                k: "query"
+                n: "minlatitude"
+                or: "minlatitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -180
+                k: "query"
+                n: "minlongitude"
+                or: "minlongitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "minmagnitude"
+                or: "minmagnitude"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "all"
+                k: "query"
+                n: "reviewstatus"
+                or: "reviewstatus"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "starttime"
+                or: "starttime"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updatedafter"
+                or: "updatedafter"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/count"
+          q: {
+            exist: [
+              "alertlevel"
+              "catalog"
+              "contributor"
+              "endtime"
+              "eventtype"
+              "format"
+              "latitude"
+              "longitude"
+              "magnitudetype"
+              "maxdepth"
+              "maxlatitude"
+              "maxlongitude"
+              "maxmagnitude"
+              "maxradius"
+              "maxradiuskm"
+              "mindepth"
+              "minlatitude"
+              "minlongitude"
+              "minmagnitude"
+              "reviewstatus"
+              "starttime"
+              "updatedafter"
+            ]
+          }
+          s: [
+            {
+              lit: "count"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -24,50 +24,122 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "earthquake_data": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "count",
-              "req": false,
-              "type": "`$INTEGER`"
+          "fields": {
+            "count": {
+              "a": true,
+              "h": "Count",
+              "n": "count",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "geometry",
-              "req": false,
-              "type": "`$OBJECT`"
+            "geometry": {
+              "a": true,
+              "h": "Geometry",
+              "n": "geometry",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "maxAllowed",
-              "req": false,
-              "type": "`$INTEGER`"
+            "maxAllowed": {
+              "a": true,
+              "h": "Max Allowed",
+              "n": "maxAllowed",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "properties",
-              "req": false,
-              "type": "`$OBJECT`"
+            "properties": {
+              "a": true,
+              "h": "Properties",
+              "n": "properties",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -79,420 +151,414 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /query",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "alertlevel",
-                        "orig": "alertlevel",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "alertlevel",
+                        "or": "alertlevel",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "callback",
-                        "orig": "callback",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "callback",
+                        "or": "callback",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "catalog",
-                        "orig": "catalog",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "catalog",
+                        "or": "catalog",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "contributor",
-                        "orig": "contributor",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "contributor",
+                        "or": "contributor",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "2014-01-02",
-                        "kind": "query",
-                        "name": "endtime",
-                        "orig": "endtime",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "2014-01-02",
+                        "k": "query",
+                        "n": "endtime",
+                        "or": "endtime",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "eventid",
-                        "orig": "eventid",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "eventid",
+                        "or": "eventid",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "earthquake",
-                        "kind": "query",
-                        "name": "eventtype",
-                        "orig": "eventtype",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "earthquake",
+                        "k": "query",
+                        "n": "eventtype",
+                        "or": "eventtype",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "quakeml",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "quakeml",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "includeallmagnitude",
-                        "orig": "includeallmagnitude",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "includeallmagnitude",
+                        "or": "includeallmagnitude",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "includeallorigin",
-                        "orig": "includeallorigin",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "includeallorigin",
+                        "or": "includeallorigin",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "includearrival",
-                        "orig": "includearrival",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "includearrival",
+                        "or": "includearrival",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": "false",
-                        "kind": "query",
-                        "name": "includedeleted",
-                        "orig": "includedeleted",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "false",
+                        "k": "query",
+                        "n": "includedeleted",
+                        "or": "includedeleted",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "includesuperseded",
-                        "orig": "includesuperseded",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "includesuperseded",
+                        "or": "includesuperseded",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "jsonerror",
-                        "orig": "jsonerror",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "jsonerror",
+                        "or": "jsonerror",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "kmlanimated",
-                        "orig": "kmlanimated",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "kmlanimated",
+                        "or": "kmlanimated",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": "age",
-                        "kind": "query",
-                        "name": "kmlcolorby",
-                        "orig": "kmlcolorby",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "age",
+                        "k": "query",
+                        "n": "kmlcolorby",
+                        "or": "kmlcolorby",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "latitude",
-                        "orig": "latitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "latitude",
+                        "or": "latitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "longitude",
-                        "orig": "longitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "longitude",
+                        "or": "longitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "magnitudetype",
-                        "orig": "magnitudetype",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "magnitudetype",
+                        "or": "magnitudetype",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxcdi",
-                        "orig": "maxcdi",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxcdi",
+                        "or": "maxcdi",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 1000,
-                        "kind": "query",
-                        "name": "maxdepth",
-                        "orig": "maxdepth",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 1000,
+                        "k": "query",
+                        "n": "maxdepth",
+                        "or": "maxdepth",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxgap",
-                        "orig": "maxgap",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxgap",
+                        "or": "maxgap",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 90,
-                        "kind": "query",
-                        "name": "maxlatitude",
-                        "orig": "maxlatitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 90,
+                        "k": "query",
+                        "n": "maxlatitude",
+                        "or": "maxlatitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 180,
-                        "kind": "query",
-                        "name": "maxlongitude",
-                        "orig": "maxlongitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 180,
+                        "k": "query",
+                        "n": "maxlongitude",
+                        "or": "maxlongitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxmagnitude",
-                        "orig": "maxmagnitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxmagnitude",
+                        "or": "maxmagnitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxmmi",
-                        "orig": "maxmmi",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxmmi",
+                        "or": "maxmmi",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 180,
-                        "kind": "query",
-                        "name": "maxradius",
-                        "orig": "maxradius",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 180,
+                        "k": "query",
+                        "n": "maxradius",
+                        "or": "maxradius",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 20001.6,
-                        "kind": "query",
-                        "name": "maxradiuskm",
-                        "orig": "maxradiuskm",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 20001.6,
+                        "k": "query",
+                        "n": "maxradiuskm",
+                        "or": "maxradiuskm",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxsig",
-                        "orig": "maxsig",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxsig",
+                        "or": "maxsig",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "mincdi",
-                        "orig": "mincdi",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "mincdi",
+                        "or": "mincdi",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -100,
-                        "kind": "query",
-                        "name": "mindepth",
-                        "orig": "mindepth",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -100,
+                        "k": "query",
+                        "n": "mindepth",
+                        "or": "mindepth",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "minfelt",
-                        "orig": "minfelt",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "minfelt",
+                        "or": "minfelt",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "mingap",
-                        "orig": "mingap",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "mingap",
+                        "or": "mingap",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -90,
-                        "kind": "query",
-                        "name": "minlatitude",
-                        "orig": "minlatitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -90,
+                        "k": "query",
+                        "n": "minlatitude",
+                        "or": "minlatitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -180,
-                        "kind": "query",
-                        "name": "minlongitude",
-                        "orig": "minlongitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -180,
+                        "k": "query",
+                        "n": "minlongitude",
+                        "or": "minlongitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 5,
-                        "kind": "query",
-                        "name": "minmagnitude",
-                        "orig": "minmagnitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 5,
+                        "k": "query",
+                        "n": "minmagnitude",
+                        "or": "minmagnitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "minsig",
-                        "orig": "minsig",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "minsig",
+                        "or": "minsig",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 204,
-                        "kind": "query",
-                        "name": "nodata",
-                        "orig": "nodata",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 204,
+                        "k": "query",
+                        "n": "nodata",
+                        "or": "nodata",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "time",
-                        "kind": "query",
-                        "name": "orderby",
-                        "orig": "orderby",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "time",
+                        "k": "query",
+                        "n": "orderby",
+                        "or": "orderby",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "productcode",
-                        "orig": "productcode",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "productcode",
+                        "or": "productcode",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "moment-tensor",
-                        "kind": "query",
-                        "name": "producttype",
-                        "orig": "producttype",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "moment-tensor",
+                        "k": "query",
+                        "n": "producttype",
+                        "or": "producttype",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "all",
-                        "kind": "query",
-                        "name": "reviewstatus",
-                        "orig": "reviewstatus",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "all",
+                        "k": "query",
+                        "n": "reviewstatus",
+                        "or": "reviewstatus",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "2014-01-01",
-                        "kind": "query",
-                        "name": "starttime",
-                        "orig": "starttime",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "2014-01-01",
+                        "k": "query",
+                        "n": "starttime",
+                        "or": "starttime",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "updatedafter",
-                        "orig": "updatedafter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "updatedafter",
+                        "or": "updatedafter",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /query",
-                    "json": "{\"operationId\":\"queryEarthquakes\",\"parameters\":[{\"description\":\"Specify the output format\",\"in\":\"query\",\"name\":\"format\",\"schema\":{\"default\":\"quakeml\",\"enum\":[\"csv\",\"geojson\",\"kml\",\"quakeml\",\"text\",\"xml\"],\"type\":\"string\"}},{\"description\":\"Limit to events on or after the specified start time. ISO8601 Date/Time format. UTC assumed if timezone not specified.\",\"example\":\"2014-01-01\",\"in\":\"query\",\"name\":\"starttime\",\"schema\":{\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Limit to events on or before the specified end time. ISO8601 Date/Time format. UTC assumed if timezone not specified.\",\"example\":\"2014-01-02\",\"in\":\"query\",\"name\":\"endtime\",\"schema\":{\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Limit to events updated after the specified time. ISO8601 Date/Time format. UTC assumed if timezone not specified.\",\"in\":\"query\",\"name\":\"updatedafter\",\"schema\":{\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Limit to events with a latitude larger than the specified minimum. Range: -90 to 90 degrees.\",\"in\":\"query\",\"name\":\"minlatitude\",\"schema\":{\"default\":-90,\"format\":\"double\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Limit to events with a latitude smaller than the specified maximum. Range: -90 to 90 degrees.\",\"in\":\"query\",\"name\":\"maxlatitude\",\"schema\":{\"default\":90,\"format\":\"double\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Limit to events with a longitude larger than the specified minimum. Range: -360 to 360 degrees.\",\"in\":\"query\",\"name\":\"minlongitude\",\"schema\":{\"default\":-180,\"format\":\"double\",\"maximum\":360,\"minimum\":-360,\"type\":\"number\"}},{\"description\":\"Limit to events with a longitude smaller than the specified maximum. Range: -360 to 360 degrees.\",\"in\":\"query\",\"name\":\"maxlongitude\",\"schema\":{\"default\":180,\"format\":\"double\",\"maximum\":360,\"minimum\":-360,\"type\":\"number\"}},{\"description\":\"Specify the latitude to be used for a radius search. Range: -90 to 90 degrees.\",\"in\":\"query\",\"name\":\"latitude\",\"schema\":{\"format\":\"double\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Specify the longitude to be used for a radius search. Range: -180 to 180 degrees.\",\"in\":\"query\",\"name\":\"longitude\",\"schema\":{\"format\":\"double\",\"maximum\":180,\"minimum\":-180,\"type\":\"number\"}},{\"description\":\"Limit to events within the specified maximum number of degrees from the geographic point defined by latitude and longitude parameters. Range: 0 to 180 degrees. Mutually exclusive with maxradiuskm.\",\"in\":\"query\",\"name\":\"maxradius\",\"schema\":{\"default\":180,\"format\":\"double\",\"maximum\":180,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Limit to events within the specified maximum number of kilometers from the geographic point defined by latitude and longitude parameters. Range: 0 to 20001.6 km. Mutually exclusive with maxradius.\",\"in\":\"query\",\"name\":\"maxradiuskm\",\"schema\":{\"default\":20001.6,\"format\":\"double\",\"maximum\":20001.6,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Limit to events with a magnitude larger than the specified minimum.\",\"example\":5,\"in\":\"query\",\"name\":\"minmagnitude\",\"schema\":{\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Limit to events with a magnitude smaller than the specified maximum.\",\"in\":\"query\",\"name\":\"maxmagnitude\",\"schema\":{\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Specify a magnitude type to use for testing the minimum and maximum limits.\",\"in\":\"query\",\"name\":\"magnitudetype\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events with depth more than the specified minimum. Range: -100 to 1000 km.\",\"in\":\"query\",\"name\":\"mindepth\",\"schema\":{\"default\":-100,\"format\":\"double\",\"maximum\":1000,\"minimum\":-100,\"type\":\"number\"}},{\"description\":\"Limit to events with depth less than the specified maximum. Range: -100 to 1000 km.\",\"in\":\"query\",\"name\":\"maxdepth\",\"schema\":{\"default\":1000,\"format\":\"double\",\"maximum\":1000,\"minimum\":-100,\"type\":\"number\"}},{\"description\":\"Limit to events from a specified catalog. Use the Catalogs Method to find available catalogs.\",\"in\":\"query\",\"name\":\"catalog\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events contributed by a specified contributor. Use the Contributors Method to find available contributors.\",\"in\":\"query\",\"name\":\"contributor\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Select a specific event by ID. Event identifiers are data center specific.\",\"in\":\"query\",\"name\":\"eventid\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Specify if all magnitudes for the event should be included.\",\"in\":\"query\",\"name\":\"includeallmagnitudes\",\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Specify if all origins for the event should be included.\",\"in\":\"query\",\"name\":\"includeallorigins\",\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Specify if phase arrivals should be included.\",\"in\":\"query\",\"name\":\"includearrivals\",\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Specify if deleted products and events should be included. Value 'only' returns only deleted events.\",\"in\":\"query\",\"name\":\"includedeleted\",\"schema\":{\"default\":\"false\",\"enum\":[\"false\",\"true\",\"only\"],\"type\":\"string\"}},{\"description\":\"Specify if superseded products should be included. Only works when specifying eventid parameter.\",\"in\":\"query\",\"name\":\"includesuperseded\",\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Limit the results to the specified number of events. Maximum: 20000.\",\"in\":\"query\",\"name\":\"limit\",\"schema\":{\"maximum\":20000,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Return results starting at the event count specified, starting at 1.\",\"in\":\"query\",\"name\":\"offset\",\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Order the results.\",\"in\":\"query\",\"name\":\"orderby\",\"schema\":{\"default\":\"time\",\"enum\":[\"time\",\"time-asc\",\"magnitude\",\"magnitude-asc\"],\"type\":\"string\"}},{\"description\":\"Limit to events with a specific PAGER alert level.\",\"in\":\"query\",\"name\":\"alertlevel\",\"schema\":{\"enum\":[\"green\",\"yellow\",\"orange\",\"red\"],\"type\":\"string\"}},{\"description\":\"Convert GeoJSON output to a JSONP response using this callback. Must be used with format=geojson.\",\"in\":\"query\",\"name\":\"callback\",\"schema\":{\"pattern\":\"^[A-Za-z0-9\\\\._]+$\",\"type\":\"string\"}},{\"description\":\"Limit to events of a specific type.\",\"example\":\"earthquake\",\"in\":\"query\",\"name\":\"eventtype\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Request JSON(P) formatted output even on API error results. Must be used with format=geojson.\",\"in\":\"query\",\"name\":\"jsonerror\",\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Whether to include timestamp in generated kml, for google earth animation support. Must be used with format=kml.\",\"in\":\"query\",\"name\":\"kmlanimated\",\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"How earthquakes are colored in KML. Must be used with format=kml.\",\"in\":\"query\",\"name\":\"kmlcolorby\",\"schema\":{\"default\":\"age\",\"enum\":[\"age\",\"depth\"],\"type\":\"string\"}},{\"description\":\"Maximum value for Maximum Community Determined Intensity reported by DYFI. Range: 0 to 12.\",\"in\":\"query\",\"name\":\"maxcdi\",\"schema\":{\"format\":\"double\",\"maximum\":12,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Minimum value for Maximum Community Determined Intensity reported by DYFI.\",\"in\":\"query\",\"name\":\"mincdi\",\"schema\":{\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Limit to events with no more than this azimuthal gap. Range: 0 to 360 degrees.\",\"in\":\"query\",\"name\":\"maxgap\",\"schema\":{\"format\":\"double\",\"maximum\":360,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Limit to events with no less than this azimuthal gap. Range: 0 to 360 degrees.\",\"in\":\"query\",\"name\":\"mingap\",\"schema\":{\"format\":\"double\",\"maximum\":360,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Maximum value for Maximum Modified Mercalli Intensity reported by ShakeMap. Range: 0 to 12.\",\"in\":\"query\",\"name\":\"maxmmi\",\"schema\":{\"format\":\"double\",\"maximum\":12,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Limit to events with no more than this significance.\",\"in\":\"query\",\"name\":\"maxsig\",\"schema\":{\"type\":\"integer\"}},{\"description\":\"Limit to events with no less than this significance.\",\"in\":\"query\",\"name\":\"minsig\",\"schema\":{\"type\":\"integer\"}},{\"description\":\"Limit to events with this many DYFI responses. Minimum: 1.\",\"in\":\"query\",\"name\":\"minfelt\",\"schema\":{\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Limit to events that have this type of product associated.\",\"examples\":{\"focalMechanism\":{\"value\":\"focal-mechanism\"},\"momentTensor\":{\"value\":\"moment-tensor\"},\"shakemap\":{\"value\":\"shakemap\"}},\"in\":\"query\",\"name\":\"producttype\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Return the event that is associated with the productcode.\",\"in\":\"query\",\"name\":\"productcode\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events with a specific review status.\",\"in\":\"query\",\"name\":\"reviewstatus\",\"schema\":{\"default\":\"all\",\"enum\":[\"automatic\",\"reviewed\",\"all\"],\"type\":\"string\"}},{\"description\":\"Define the error code that will be returned when no data is found.\",\"in\":\"query\",\"name\":\"nodata\",\"schema\":{\"default\":204,\"enum\":[204,404],\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"bbox\":{\"items\":{\"type\":\"number\"},\"type\":\"array\"},\"features\":{\"items\":{\"properties\":{\"geometry\":{\"properties\":{\"coordinates\":{\"items\":{\"type\":\"number\"},\"maxItems\":3,\"minItems\":3,\"type\":\"array\"},\"type\":{\"example\":\"Point\",\"type\":\"string\"}},\"type\":\"object\"},\"id\":{\"type\":\"string\"},\"properties\":{\"properties\":{\"alert\":{\"type\":\"string\"},\"cdi\":{\"type\":\"number\"},\"code\":{\"type\":\"string\"},\"detail\":{\"type\":\"string\"},\"dmin\":{\"type\":\"number\"},\"felt\":{\"type\":\"integer\"},\"gap\":{\"type\":\"number\"},\"ids\":{\"type\":\"string\"},\"mag\":{\"type\":\"number\"},\"magType\":{\"type\":\"string\"},\"mmi\":{\"type\":\"number\"},\"net\":{\"type\":\"string\"},\"nst\":{\"type\":\"integer\"},\"place\":{\"type\":\"string\"},\"rms\":{\"type\":\"number\"},\"sig\":{\"type\":\"integer\"},\"sources\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"time\":{\"format\":\"int64\",\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"tsunami\":{\"type\":\"integer\"},\"type\":{\"type\":\"string\"},\"types\":{\"type\":\"string\"},\"tz\":{\"type\":\"integer\"},\"updated\":{\"format\":\"int64\",\"type\":\"integer\"},\"url\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"example\":\"Feature\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"metadata\":{\"properties\":{\"api\":{\"type\":\"string\"},\"count\":{\"type\":\"integer\"},\"generated\":{\"format\":\"int64\",\"type\":\"integer\"},\"status\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"url\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"example\":\"FeatureCollection\",\"type\":\"string\"}},\"type\":\"object\"}},\"application/vnd.google-earth.kml+xml\":{\"schema\":{\"description\":\"KML formatted earthquake data\",\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"description\":\"QuakeML 1.2 formatted earthquake data\",\"type\":\"object\"}},\"text/csv\":{\"schema\":{\"type\":\"string\"}},\"text/plain\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with earthquake data\"},\"204\":{\"description\":\"No data found (when nodata=204)\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"404\":{\"description\":\"No data found (when nodata=404)\"},\"409\":{\"description\":\"Conflict - deleted event (when includedeleted is not specified)\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/query",
-                  "segments": [
-                    {
-                      "lit": "query"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/query",
+                  "q": {
                     "exist": [
                       "alertlevel",
                       "callback",
@@ -542,7 +608,13 @@
                       "updatedafter"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "query"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -554,212 +626,206 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /count",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "alertlevel",
-                        "orig": "alertlevel",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "alertlevel",
+                        "or": "alertlevel",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "catalog",
-                        "orig": "catalog",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "catalog",
+                        "or": "catalog",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "contributor",
-                        "orig": "contributor",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "contributor",
+                        "or": "contributor",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "endtime",
-                        "orig": "endtime",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "endtime",
+                        "or": "endtime",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "eventtype",
-                        "orig": "eventtype",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "eventtype",
+                        "or": "eventtype",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "text",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "text",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "latitude",
-                        "orig": "latitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "latitude",
+                        "or": "latitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "longitude",
-                        "orig": "longitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "longitude",
+                        "or": "longitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "magnitudetype",
-                        "orig": "magnitudetype",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "magnitudetype",
+                        "or": "magnitudetype",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 1000,
-                        "kind": "query",
-                        "name": "maxdepth",
-                        "orig": "maxdepth",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 1000,
+                        "k": "query",
+                        "n": "maxdepth",
+                        "or": "maxdepth",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 90,
-                        "kind": "query",
-                        "name": "maxlatitude",
-                        "orig": "maxlatitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 90,
+                        "k": "query",
+                        "n": "maxlatitude",
+                        "or": "maxlatitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 180,
-                        "kind": "query",
-                        "name": "maxlongitude",
-                        "orig": "maxlongitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 180,
+                        "k": "query",
+                        "n": "maxlongitude",
+                        "or": "maxlongitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxmagnitude",
-                        "orig": "maxmagnitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxmagnitude",
+                        "or": "maxmagnitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 180,
-                        "kind": "query",
-                        "name": "maxradius",
-                        "orig": "maxradius",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 180,
+                        "k": "query",
+                        "n": "maxradius",
+                        "or": "maxradius",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": 20001.6,
-                        "kind": "query",
-                        "name": "maxradiuskm",
-                        "orig": "maxradiuskm",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 20001.6,
+                        "k": "query",
+                        "n": "maxradiuskm",
+                        "or": "maxradiuskm",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -100,
-                        "kind": "query",
-                        "name": "mindepth",
-                        "orig": "mindepth",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -100,
+                        "k": "query",
+                        "n": "mindepth",
+                        "or": "mindepth",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -90,
-                        "kind": "query",
-                        "name": "minlatitude",
-                        "orig": "minlatitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -90,
+                        "k": "query",
+                        "n": "minlatitude",
+                        "or": "minlatitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": -180,
-                        "kind": "query",
-                        "name": "minlongitude",
-                        "orig": "minlongitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": -180,
+                        "k": "query",
+                        "n": "minlongitude",
+                        "or": "minlongitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "minmagnitude",
-                        "orig": "minmagnitude",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "minmagnitude",
+                        "or": "minmagnitude",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "all",
-                        "kind": "query",
-                        "name": "reviewstatus",
-                        "orig": "reviewstatus",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "all",
+                        "k": "query",
+                        "n": "reviewstatus",
+                        "or": "reviewstatus",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "starttime",
-                        "orig": "starttime",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "starttime",
+                        "or": "starttime",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "updatedafter",
-                        "orig": "updatedafter",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "updatedafter",
+                        "or": "updatedafter",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /count",
-                    "json": "{\"operationId\":\"countEarthquakes\",\"parameters\":[{\"description\":\"Specify the output format\",\"in\":\"query\",\"name\":\"format\",\"schema\":{\"default\":\"text\",\"enum\":[\"text\",\"geojson\",\"xml\"],\"type\":\"string\"}},{\"description\":\"Limit to events on or after the specified start time. ISO8601 Date/Time format. UTC assumed if timezone not specified.\",\"in\":\"query\",\"name\":\"starttime\",\"schema\":{\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Limit to events on or before the specified end time. ISO8601 Date/Time format. UTC assumed if timezone not specified.\",\"in\":\"query\",\"name\":\"endtime\",\"schema\":{\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Limit to events updated after the specified time. ISO8601 Date/Time format. UTC assumed if timezone not specified.\",\"in\":\"query\",\"name\":\"updatedafter\",\"schema\":{\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Limit to events with a latitude larger than the specified minimum. Range: -90 to 90 degrees.\",\"in\":\"query\",\"name\":\"minlatitude\",\"schema\":{\"default\":-90,\"format\":\"double\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Limit to events with a latitude smaller than the specified maximum. Range: -90 to 90 degrees.\",\"in\":\"query\",\"name\":\"maxlatitude\",\"schema\":{\"default\":90,\"format\":\"double\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Limit to events with a longitude larger than the specified minimum. Range: -360 to 360 degrees.\",\"in\":\"query\",\"name\":\"minlongitude\",\"schema\":{\"default\":-180,\"format\":\"double\",\"maximum\":360,\"minimum\":-360,\"type\":\"number\"}},{\"description\":\"Limit to events with a longitude smaller than the specified maximum. Range: -360 to 360 degrees.\",\"in\":\"query\",\"name\":\"maxlongitude\",\"schema\":{\"default\":180,\"format\":\"double\",\"maximum\":360,\"minimum\":-360,\"type\":\"number\"}},{\"description\":\"Specify the latitude to be used for a radius search. Range: -90 to 90 degrees.\",\"in\":\"query\",\"name\":\"latitude\",\"schema\":{\"format\":\"double\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Specify the longitude to be used for a radius search. Range: -180 to 180 degrees.\",\"in\":\"query\",\"name\":\"longitude\",\"schema\":{\"format\":\"double\",\"maximum\":180,\"minimum\":-180,\"type\":\"number\"}},{\"description\":\"Limit to events within the specified maximum number of degrees from the geographic point. Range: 0 to 180 degrees.\",\"in\":\"query\",\"name\":\"maxradius\",\"schema\":{\"default\":180,\"format\":\"double\",\"maximum\":180,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Limit to events within the specified maximum number of kilometers from the geographic point. Range: 0 to 20001.6 km.\",\"in\":\"query\",\"name\":\"maxradiuskm\",\"schema\":{\"default\":20001.6,\"format\":\"double\",\"maximum\":20001.6,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Limit to events with a magnitude larger than the specified minimum.\",\"in\":\"query\",\"name\":\"minmagnitude\",\"schema\":{\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Limit to events with a magnitude smaller than the specified maximum.\",\"in\":\"query\",\"name\":\"maxmagnitude\",\"schema\":{\"format\":\"double\",\"type\":\"number\"}},{\"description\":\"Specify a magnitude type to use for testing the minimum and maximum limits.\",\"in\":\"query\",\"name\":\"magnitudetype\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events with depth more than the specified minimum. Range: -100 to 1000 km.\",\"in\":\"query\",\"name\":\"mindepth\",\"schema\":{\"default\":-100,\"format\":\"double\",\"maximum\":1000,\"minimum\":-100,\"type\":\"number\"}},{\"description\":\"Limit to events with depth less than the specified maximum. Range: -100 to 1000 km.\",\"in\":\"query\",\"name\":\"maxdepth\",\"schema\":{\"default\":1000,\"format\":\"double\",\"maximum\":1000,\"minimum\":-100,\"type\":\"number\"}},{\"description\":\"Limit to events from a specified catalog.\",\"in\":\"query\",\"name\":\"catalog\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events contributed by a specified contributor.\",\"in\":\"query\",\"name\":\"contributor\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events of a specific type.\",\"in\":\"query\",\"name\":\"eventtype\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Limit to events with a specific review status.\",\"in\":\"query\",\"name\":\"reviewstatus\",\"schema\":{\"default\":\"all\",\"enum\":[\"automatic\",\"reviewed\",\"all\"],\"type\":\"string\"}},{\"description\":\"Limit to events with a specific PAGER alert level.\",\"in\":\"query\",\"name\":\"alertlevel\",\"schema\":{\"enum\":[\"green\",\"yellow\",\"orange\",\"red\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"count\":{\"type\":\"integer\"},\"maxAllowed\":{\"type\":\"integer\"}},\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"example\":42,\"type\":\"integer\"}}},\"description\":\"Successful response with event count\"},\"204\":{\"description\":\"No data found\"},\"400\":{\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/count",
-                  "segments": [
-                    {
-                      "lit": "count"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/count",
+                  "q": {
                     "exist": [
                       "alertlevel",
                       "catalog",
@@ -785,7 +851,13 @@
                       "updatedafter"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "count"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -802,7 +874,7 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": {},
           "name": "service_information",
           "op": {
             "list": {
@@ -810,47 +882,47 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /catalogs",
-                    "json": "{\"operationId\":\"getCatalogs\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"List of available catalogs\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/catalogs",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/catalogs",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "catalogs"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /contributors",
-                    "json": "{\"operationId\":\"getContributors\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}}},\"description\":\"List of available contributors\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/contributors",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/contributors",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "contributors"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -862,70 +934,70 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /application.json",
-                    "json": "{\"operationId\":\"getApplicationJson\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Enumerated parameter values\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/application.json",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/application.json",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "application.json"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /application.wadl",
-                    "json": "{\"operationId\":\"getWadl\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"WADL document\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/application.wadl",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/application.wadl",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "application.wadl"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /version",
-                    "json": "{\"operationId\":\"getVersion\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/plain\":{\"schema\":{\"example\":\"1.13.6\",\"type\":\"string\"}}},\"description\":\"Service version number\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/version",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/version",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "version"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1354,13 +1426,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1370,17 +1442,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "earthquake_data_ref01",
                 "srcdatavar": "earthquake_data_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1400,13 +1472,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1416,17 +1488,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "service_information_ref01",
                 "srcdatavar": "service_information_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

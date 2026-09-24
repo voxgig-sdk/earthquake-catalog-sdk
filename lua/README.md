@@ -43,7 +43,7 @@ local earthquakedatas, err = client:EarthquakeData():list()
 if err then error(err) end
 
 for _, item in ipairs(earthquakedatas) do
-  print(item["id"], item["type"])
+  print(item["id"])
 end
 ```
 

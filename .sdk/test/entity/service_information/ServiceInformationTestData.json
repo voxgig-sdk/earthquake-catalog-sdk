@@ -20,115 +20,28 @@
   "requests": {
     "GET /catalogs": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getCatalogs",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "List of available catalogs"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     },
     "GET /contributors": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getContributors",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "List of available contributors"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     },
     "GET /application.json": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getApplicationJson",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Enumerated parameter values"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     },
     "GET /application.wadl": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getWadl",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "WADL document"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     },
     "GET /version": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getVersion",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "example": "1.13.6",
-                  "type": "string"
-                }
-              }
-            },
-            "description": "Service version number"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

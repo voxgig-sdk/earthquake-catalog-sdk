@@ -1,7 +1,7 @@
 // Typed models for the EarthquakeCatalog SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,12 +14,6 @@ import (
 
 // EarthquakeData is the typed data model for the earthquake_data entity.
 type EarthquakeData struct {
-	Count *int `json:"count,omitempty"`
-	Geometry *map[string]any `json:"geometry,omitempty"`
-	Id *string `json:"id,omitempty"`
-	MaxAllowed *int `json:"maxAllowed,omitempty"`
-	Properties *map[string]any `json:"properties,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // EarthquakeDataLoadMatch is the typed request payload for EarthquakeData.LoadTyped.
